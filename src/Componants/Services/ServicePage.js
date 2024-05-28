@@ -9,8 +9,8 @@ function ServicePage() {
       .then(response => {
         setServices(response.data);
       })
-      .catch(error => {
-        console.log(error);
+      .catch(err => {
+        console.log(err);
       });
   }, []);
 
