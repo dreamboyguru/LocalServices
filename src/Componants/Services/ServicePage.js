@@ -1,19 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 function ServicePage() {
   const [services, setServices] = useState([]);
   
   useEffect(() => {
-    axios.get('http://localhost:3001/service')
-      .then(response => {
-        setServices(response.data);
-      })
-      .catch(err => {
-        console.log(err);
-      });
+    // axios.get('http://localhost:3001/service')
+    //   .then(response => {
+    //     setServices(response.data);
+    //   })
+    //   .catch(err => {
+    //     console.log(err);
+    //   });
+    setServices([{name : 'Driver', sample : 'Driver'}, {name : 'Driver', sample : 'Plumber'}])
   }, []);
-
   return (
     <div className='pt-20 flex flex-wrap justify-center'>
       {services.length > 0 ? 
@@ -25,7 +26,7 @@ function ServicePage() {
               className='w-full h-52 max-sm:h-auto object-cover rounded-t-md'
             />
             <div className='item-center p-2'>
-              <h2 className='text-lg font-semibold text-center justify-center'>{service.sample}</h2>
+              <h2 className='text-lg font-semibold text-center justify-center'><Link to='vendors'>{service.sample}</Link></h2>
             </div>
           </div>
         ))

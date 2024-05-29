@@ -1,6 +1,7 @@
 // src/Header.js
 import React, { useState } from 'react';
 import { CgProfile } from "react-icons/cg";
+import { Link } from 'react-router-dom';
 
 const Header = () => {
     const [loginBox, setLoginBox] = useState(false);
@@ -18,7 +19,7 @@ const Header = () => {
         return (
             <ul className='absolute w-40 bg-gray-700 top-16 right-10 rounded-md text-center transition-transform duration-500 ease-out transform origin-top'>
                 <li className='py-2 hover:bg-gray-600'><a href="#">User</a></li>
-                <li className='py-2 hover:bg-gray-600'><a href="#">Vendor</a></li>
+                <li className='py-2 hover:bg-gray-600'><a href='Vendor/Tabs'>Vendor</a></li>
                 <li className='py-2 hover:bg-gray-600'><a href="#">Admin</a></li>
             </ul>
         );
