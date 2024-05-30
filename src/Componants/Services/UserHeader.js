@@ -1,31 +1,15 @@
-// src/Header.js
+// src/UserHeader.js
 import React, { useState } from 'react';
 import { CgProfile } from "react-icons/cg";
-import Tabs from './Vendor/Tabs';
-import UserHeader from './Services/UserHeader';
-import Test from './Vendor/Test';
+import UserHome from './UserHome';
+import { Route, Routes, useNavigate } from 'react-router-dom';
+import ServicePage from './ServicePage';
+import Vendors from './Vendors';
 
-const Header = () => {
+const UserHeader = () => {
     const [loginBox, setLoginBox] = useState(false);
 
-    const [selectedComponent, setSelectedComponent] = useState(null);
-
-  const handleClick = (component) => {
-    switch (component) {
-      case 'Component1':
-        setSelectedComponent(<UserHeader />);
-        break;
-      case 'Component2':
-        setSelectedComponent(<Tabs />);
-        break;
-      case 'Component3':
-        setSelectedComponent(<Test />);
-        break;
-      default:
-        setSelectedComponent(null);
-    }
-  };
-
+  
     const loginToggle = (e) => {
         e.stopPropagation(); // Prevent triggering the header's onClick
         setLoginBox(!loginBox);
@@ -34,29 +18,21 @@ const Header = () => {
     const loginToggleShow = () => {
         setLoginBox(false);
     }
-
+    
+    // const navigate = useNavigate();
+    // navigate('services')
     const dropdown = () => {
         return (
             <ul className='absolute w-40 bg-gray-700 top-16 right-10 rounded-md text-center transition-transform duration-500 ease-out transform origin-top'>
-                <li onClick={()=>handleClick('Component1')} className='py-2 hover:bg-gray-600'>User</li>
+                {/* <li onClick={()=>handleClick('Component1')} className='py-2 hover:bg-gray-600'>User</li>
                 <li onClick={()=>handleClick('Component2')} className='py-2 hover:bg-gray-600'>Vendor</li>
-                <li onClick={()=>handleClick('Component3')} className='py-2 hover:bg-gray-600'>Admin</li>
+                <li onClick={()=>handleClick('Component3')} className='py-2 hover:bg-gray-600'>Admin</li> */}
             </ul>
         );
     }
 
     return (
-    //     <div>
-    //   <button onClick={() => handleClick('Component1')}>Component 1</button>
-    //   <button onClick={() => handleClick('Component2')}>Component 2</button>
-    //   <button onClick={() => handleClick('Component3')}>Component 3</button>
-
-    //   {selectedComponent && (
-    //     selectedComponent
-    //   )}
-    // </div>
-        selectedComponent !== null ? 
-            selectedComponent  : 
+        <>
             <header className='fixed w-full bg-gray-600 p-4 flex flex-row justify-between items-center shadow-md px-14'
                 onClick={loginToggleShow}
             >
@@ -71,9 +47,17 @@ const Header = () => {
                         </li>
                     </ul>
                 </nav>
-            </header>
+            </header> 
+            <body>
+                {/* <UserHome /> */}
+
+                <Routes>
+                    <Route path='/' element={<ServicePage />} />
+                </Routes>
+            </body>
+        </>       
         
     );
 }
 
-export default Header;
+export default UserHeader;

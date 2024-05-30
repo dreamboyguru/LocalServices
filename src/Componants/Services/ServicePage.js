@@ -13,7 +13,11 @@ function ServicePage() {
     //   .catch(err => {
     //     console.log(err);
     //   });
-    setServices([{name : 'Driver', sample : 'Driver'}, {name : 'Driver', sample : 'Plumber'}])
+    setServices([
+      {name : 'Driver', sample : 'Driver'}, 
+      {name : 'Driver', sample : 'Plumber'},
+      {name : 'Driver', sample : 'Plumber'}
+    ])
   }, []);
   return (
     <div className='pt-20 flex flex-wrap justify-center'>
