@@ -5,12 +5,14 @@ import { TfiDashboard } from "react-icons/tfi";
 import { GiThreeLeaves, GiSloth  } from "react-icons/gi";
 import { MdReviews } from "react-icons/md";
 import { RiMenuFold2Fill, RiMenuFoldFill } from "react-icons/ri";
+import { FaRupeeSign } from "react-icons/fa";
+import { IoDocuments  } from "react-icons/io5";
+import { RiStickyNoteAddFill } from "react-icons/ri";
 import Dashboard from './Dashboard';
-import Test from './Test';
-import Slots from './Slots';
-import Leave from './Leave';
+import AddServices from './AddServices';
+import Documents from './Documents';
 
-const Tabs = () => {
+const AdminTabs = () => {
     const [loginBox, setLoginBox] = useState(false);
     const [menu, setMenu] = useState(false);
 
@@ -67,33 +69,42 @@ const Tabs = () => {
                     {menu ? (<nav className='w-52 duration-500'>
                         <ul className='flex flex-col text-center'>
                             <hr className='border-gray-700' />
-                            <Link to='vendorDash' className='flex flex-row py-5 items-center justify-center hover:bg-gray-700 text-center'>
+                            <Link to='adminDash' className='flex flex-row py-5 items-center justify-center hover:bg-gray-700 text-center'>
                                 {/* <a href='#slots' className='text-right'>Dashboard</a> */}
                                 Dashboard
                                 <TfiDashboard className='text-3xl pl-2'/>
                             </Link> <hr className='border-gray-700' />
-                            <Link to='slot' className='flex flex-row py-5 items-center justify-center hover:bg-gray-700 text-center'>
-                                {/* <a href='#slots' className='text-right'>Slots</a> */}
-                                Slots
-                                <GiSloth className='text-3xl pl-2'/>
+                            <Link to='addServices' className='flex flex-row py-5 items-center justify-center hover:bg-gray-700 text-center'>
+                                Services
+                                <RiStickyNoteAddFill className='text-3xl pl-2'/>
+                            </Link> <hr className='border-gray-700' />
+                            <Link to='documents' className='flex flex-row py-5 items-center justify-center hover:bg-gray-700 text-center'>
+                                Documents
+                                <IoDocuments className='text-3xl pl-2'/>
+                            </Link> <hr className='border-gray-700' />
+                            <Link to='Rates' className='flex flex-row py-5 items-center justify-center hover:bg-gray-700 text-center'>
+                                Rate
+                                <FaRupeeSign className='text-2xl pl-2'/>
                             </Link> <hr className='border-gray-700' />
                             <Link to='leave' className='flex flex-row py-5 items-center justify-center hover:bg-gray-700 text-center'>
-                                <a href='#slots' className='text-right'>Leave</a>
+                                Leave
                                 <GiThreeLeaves className='text-3xl pl-2'/>
                             </Link> <hr className='border-gray-700' />
-                            <li className='flex flex-row py-5 items-center justify-center hover:bg-gray-700 text-center'>
-                                <a href='#slots' className='text-right'>Review</a>
-                                <MdReviews className='text-3xl pl-2'/>
-                            </li> <hr className='border-gray-700' />
                         </ul>
                     </nav>) : (<nav className='w-16 max-md:w-0 max-md:collapse duration-300'>
                         <ul className='flex flex-col text-center'>
                             <hr className='border-gray-700' />
-                            <Link to='vendorDash' className='flex flex-row py-5 items-center justify-center hover:bg-gray-700 text-center'>
+                            <Link to='adminDash' className='flex flex-row py-5 items-center justify-center hover:bg-gray-700 text-center'>
                                 <TfiDashboard className='text-3xl pl-2'/>
                             </Link> <hr className='border-gray-700' />
+                            <Link to='addServices' className='flex flex-row py-5 items-center justify-center hover:bg-gray-700 text-center'>
+                                <RiStickyNoteAddFill className='text-3xl pl-2'/>
+                            </Link> <hr className='border-gray-700' />
+                            <Link to='documents' className='flex flex-row py-5 items-center justify-center hover:bg-gray-700 text-center'>
+                                <IoDocuments className='text-3xl pl-2'/>
+                            </Link> <hr className='border-gray-700' />
                             <Link to='slot' className='flex flex-row py-5 items-center justify-center hover:bg-gray-700 text-center'>
-                                <GiSloth className='text-3xl pl-2'/>
+                                <FaRupeeSign className='text-3xl pl-2'/>
                             </Link> <hr className='border-gray-700' />
                             <Link to='leave' className='flex flex-row py-5 items-center justify-center hover:bg-gray-700 text-center'>
                                 <GiThreeLeaves className='text-3xl pl-2'/>
@@ -110,13 +121,15 @@ const Tabs = () => {
             <body  className={`container ${menu ? 'menu-open' : null} pt-20 transition-all duration-300 min-h-screen bg-slate-200 w-full font-serif`}>
                 <Routes>
                     <Route path='/' element={<Dashboard />} />
-                    <Route path='slot' element={<Slots />} />
-                    <Route path="vendorDash" element={<Dashboard />} />
-                    <Route path='leave' element={<Leave />} />
+                    <Route path='adminDash' element={<Dashboard />} />
+                    <Route path='addServices' element={<AddServices />} />
+                    <Route path='documents' element={<Documents />} />
+                    {/* <Route path="vendorDash" element={<Dashboard />} />
+                    <Route path='leave' element={<Leave />} /> */}
                 </Routes>
             </body>
         </>
     );
 };
 
-export default Tabs;
+export default AdminTabs;

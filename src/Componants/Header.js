@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { CgProfile } from "react-icons/cg";
 import Tabs from './Vendor/Tabs';
 import UserHeader from './Services/UserHeader';
-import Test from './Vendor/Test';
+import AdminTabs from './admin/AdminTabs';
 
 const Header = () => {
     const [loginBox, setLoginBox] = useState(false);
@@ -22,7 +22,8 @@ const Header = () => {
             setSelectedComponent(<Tabs />);
             break;
         case 'Component3':
-            setSelectedComponent(<Test />);
+            localStorage.setItem('type', 'Component3');
+            setSelectedComponent(<AdminTabs />);
             break;
         default:
             setSelectedComponent(null);
