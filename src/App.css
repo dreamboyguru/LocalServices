@@ -1,0 +1,30 @@
+/* Default padding-left */
+.container {
+    padding-left: 80px;
+    padding-right: 10px;
+}
+
+/* When the menu is open, adjust padding-left */
+.container.menu-open {
+    padding-left: 220px;
+}
+
+/* Responsive adjustments for different screen sizes */
+@media (max-width: 768px) {
+    .container {
+        padding-left: 80px; /* Adjust as needed for smaller screens */
+    }
+    .container.menu-open {
+        padding-left: 150px; /* Adjust as needed for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 5px;
+        padding-top: 70px; /* Adjust as needed for even smaller screens */
+    }
+    .container.menu-open {
+        padding-left: 5px; /* Adjust as needed for even smaller screens */
+    }
+}

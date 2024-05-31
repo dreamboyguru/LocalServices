@@ -7,6 +7,8 @@ import { MdReviews } from "react-icons/md";
 import { RiMenuFold2Fill, RiMenuFoldFill } from "react-icons/ri";
 import Dashboard from './Dashboard';
 import Test from './Test';
+import Slots from './Slots';
+import Leave from './Leave';
 
 const Tabs = () => {
     const [loginBox, setLoginBox] = useState(false);
@@ -75,10 +77,10 @@ const Tabs = () => {
                                 Slots
                                 <GiSloth className='text-3xl pl-2'/>
                             </Link> <hr className='border-gray-700' />
-                            <li className='flex flex-row py-5 items-center justify-center hover:bg-gray-700 text-center'>
+                            <Link to='leave' className='flex flex-row py-5 items-center justify-center hover:bg-gray-700 text-center'>
                                 <a href='#slots' className='text-right'>Leave</a>
                                 <GiThreeLeaves className='text-3xl pl-2'/>
-                            </li> <hr className='border-gray-700' />
+                            </Link> <hr className='border-gray-700' />
                             <li className='flex flex-row py-5 items-center justify-center hover:bg-gray-700 text-center'>
                                 <a href='#slots' className='text-right'>Review</a>
                                 <MdReviews className='text-3xl pl-2'/>
@@ -105,11 +107,12 @@ const Tabs = () => {
                     
                 </div>
             </header>
-            <body style={{paddingLeft : menu ? '230px' : '100px'}} className='pt-20 transition-all duration-300 min-h-screen bg-slate-200'>
+            <body  className={`container ${menu ? 'menu-open' : null} pt-20 transition-all duration-300 min-h-screen bg-slate-200 w-full font-serif`}>
                 <Routes>
                     <Route path='/' element={<Dashboard />} />
-                    <Route path='slot' element={<Test />} />
+                    <Route path='slot' element={<Slots />} />
                     <Route path="vendorDash" element={<Dashboard />} />
+                    <Route path='leave' element={<Leave />} />
                     
                 </Routes>
             </body>
