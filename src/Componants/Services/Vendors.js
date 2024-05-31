@@ -15,7 +15,7 @@ const Vendors = () => {
 
 
   return (
-    <div className="container mx-auto p-4 pt-20">
+    <div className=" mx-auto p-4 pt-20">
         <div className="overflow-x-auto rounded-md">
             <table className="min-w-full divide-y divide-gray-700">
                 <thead className="bg-gray-600">

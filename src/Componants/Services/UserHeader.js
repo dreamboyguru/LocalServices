@@ -1,7 +1,7 @@
 // src/UserHeader.js
 import React, { useState } from 'react';
 import { CgProfile } from "react-icons/cg";
-import { Route, Routes } from 'react-router-dom';
+import { Link, Route, Routes } from 'react-router-dom';
 import ServicePage from './ServicePage';
 
 const UserHeader = () => {
@@ -19,10 +19,11 @@ const UserHeader = () => {
     
     const dropdown = () => {
         return (
-            <ul className='absolute w-40 bg-gray-700 top-16 right-10 rounded-md text-center transition-transform duration-500 ease-out transform origin-top'>
-                {/* <li onClick={()=>handleClick('Component1')} className='py-2 hover:bg-gray-600'>User</li>
-                <li onClick={()=>handleClick('Component2')} className='py-2 hover:bg-gray-600'>Vendor</li>
-                <li onClick={()=>handleClick('Component3')} className='py-2 hover:bg-gray-600'>Admin</li> */}
+            <ul className='absolute w-40 bg-gray-700 top-16 right-10 rounded-b-md text-center transition-transform duration-500 ease-out transform origin-top'>
+                <hr className='border-gray-700'/>
+                <li className='py-3 px-5 hover:bg-gray-700'><Link to='/settings'>Settings</Link></li>
+                <hr className='border-gray-700'/>
+                <li className='py-3 px-5 hover:bg-gray-700 hover:rounded-b-md'><Link to='logout'>Logout</Link></li>
             </ul>
         );
     }

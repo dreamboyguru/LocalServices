@@ -15,16 +15,16 @@ const Leave = () => {
             <input type="date" className="text-2xl text-black text-center border border-gray-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-gray-500" />
             </div>
             <div className='w-full'>
-                <button type='submit' className='p-3 px-4 mt-5 bg-gray-500 text-2xl max-md:text-lg hover:bg-gray-600 w-full rounded-md'>Submit</button>
+                <button type='submit' className='p-3 px-4 mt-5 bg-gray-500 text-2xl max-md:text-lg hover:bg-gray-600 w-full rounded-md hover:scale-105 duration-300'>Submit</button>
             </div>
         </div>
         <div className="shadow-lg w-[58%] max-md:w-full mb-5 ml-5 max-md:ml-0 h-auto">
             <table className="min-w-full border-collapse border border-gray-300 shadow-lg max-md:text-sm">
                 <thead>
-                    <tr className="bg-gray-400 text-gray-700">
-                        <th className="border border-gray-300 px-4 py-2 max-md:py-4 w-1/12 max-md:px-1">SL.No</th>
-                        <th className="border border-gray-300 px-4 py-2 max-md:py-4 w-3/12 max-md:px-1">Applied Date</th>
-                        <th className="border border-gray-300 px-4 py-2 max-md:py-4 w-4/12 max-md:px-1">Status</th>
+                    <tr className="bg-gray-500 text-white">
+                        <th className="border border-gray-300 px-4 py-4 max-md:py-4 w-1/12 max-md:px-1">SL.No</th>
+                        <th className="border border-gray-300 px-4 py-4 max-md:py-4 w-3/12 max-md:px-1">Applied Date</th>
+                        <th className="border border-gray-300 px-4 py-4 max-md:py-4 w-4/12 max-md:px-1">Status</th>
                     </tr>
                 </thead>
                 <tbody className="text-center text-black">

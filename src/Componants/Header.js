@@ -9,22 +9,26 @@ const Header = () => {
     const [loginBox, setLoginBox] = useState(false);
 
     const [selectedComponent, setSelectedComponent] = useState(null);
+    const type = localStorage.getItem('type') || null;
 
-  const handleClick = (component) => {
-    switch (component) {
-      case 'Component1':
-        setSelectedComponent(<UserHeader />);
-        break;
-      case 'Component2':
-        setSelectedComponent(<Tabs />);
-        break;
-      case 'Component3':
-        setSelectedComponent(<Test />);
-        break;
-      default:
-        setSelectedComponent(null);
-    }
-  };
+    const handleClick = (component) => {
+        switch (component) {
+        case 'Component1':
+            localStorage.setItem('type', 'Component1');
+            setSelectedComponent(<UserHeader />);
+            break;
+        case 'Component2':
+            localStorage.setItem('type', 'Component2');
+            setSelectedComponent(<Tabs />);
+            break;
+        case 'Component3':
+            setSelectedComponent(<Test />);
+            break;
+        default:
+            setSelectedComponent(null);
+        }
+    };
+    
 
     const loginToggle = (e) => {
         e.stopPropagation(); // Prevent triggering the header's onClick
@@ -55,11 +59,12 @@ const Header = () => {
     //     selectedComponent
     //   )}
     // </div>
+    
         selectedComponent !== null ? 
             selectedComponent  : 
             <header className='fixed w-full bg-gray-600 p-4 flex flex-row justify-between items-center shadow-md px-14'
                 onClick={loginToggleShow}
-            >
+            >{type !== null ? handleClick(type) : null}
                 <h1>Logo</h1>
                 <nav>
                     <ul className='flex flex-row space-x-4'>

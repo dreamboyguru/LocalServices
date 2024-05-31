@@ -12,7 +12,7 @@ import Leave from './Leave';
 
 const Tabs = () => {
     const [loginBox, setLoginBox] = useState(false);
-    const [menu, setMenu] = useState(false);
+    const [menu, setMenu] = useState(true);
 
     const loginToggle = (e) => {
         e.stopPropagation(); // Prevent triggering the header's onClick
@@ -32,7 +32,7 @@ const Tabs = () => {
                 <hr className='border-gray-700'/>
                 <li className='py-3 px-5 hover:bg-gray-700'><Link to='/settings'>Settings</Link></li>
                 <hr className='border-gray-700'/>
-                <li className='py-3 px-5 hover:bg-gray-700 hover:rounded-b-md'><Link to='/logout'>Logout</Link></li>
+                <li className='py-3 px-5 hover:bg-gray-700 hover:rounded-b-md'><Link to='logout'>Logout</Link></li>
             </ul>
         );
     }
@@ -89,15 +89,15 @@ const Tabs = () => {
                     </nav>) : (<nav className='w-16 max-md:w-0 max-md:collapse duration-300'>
                         <ul className='flex flex-col text-center'>
                             <hr className='border-gray-700' />
-                            <li className='flex flex-row py-5 items-center justify-center hover:bg-gray-700 text-center'>
+                            <Link to='vendorDash' className='flex flex-row py-5 items-center justify-center hover:bg-gray-700 text-center'>
                                 <TfiDashboard className='text-3xl pl-2'/>
-                            </li> <hr className='border-gray-700' />
-                            <li className='flex flex-row py-5 items-center justify-center hover:bg-gray-700 text-center'>
+                            </Link> <hr className='border-gray-700' />
+                            <Link to='slot' className='flex flex-row py-5 items-center justify-center hover:bg-gray-700 text-center'>
                                 <GiSloth className='text-3xl pl-2'/>
-                            </li> <hr className='border-gray-700' />
-                            <li className='flex flex-row py-5 items-center justify-center hover:bg-gray-700 text-center'>
+                            </Link> <hr className='border-gray-700' />
+                            <Link to='leave' className='flex flex-row py-5 items-center justify-center hover:bg-gray-700 text-center'>
                                 <GiThreeLeaves className='text-3xl pl-2'/>
-                            </li> <hr className='border-gray-700' />
+                            </Link> <hr className='border-gray-700' />
                             <li className='flex flex-row py-5 items-center justify-center hover:bg-gray-700 text-center'>
                                 <MdReviews className='text-3xl pl-2'/>
                             </li> <hr className='border-gray-700' />
@@ -113,7 +113,6 @@ const Tabs = () => {
                     <Route path='slot' element={<Slots />} />
                     <Route path="vendorDash" element={<Dashboard />} />
                     <Route path='leave' element={<Leave />} />
-                    
                 </Routes>
             </body>
         </>
