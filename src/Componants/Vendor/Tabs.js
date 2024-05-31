@@ -6,6 +6,7 @@ import { GiThreeLeaves, GiSloth  } from "react-icons/gi";
 import { MdReviews } from "react-icons/md";
 import { RiMenuFold2Fill, RiMenuFoldFill } from "react-icons/ri";
 import Dashboard from './Dashboard';
+import Test from './Test';
 
 const Tabs = () => {
     const [loginBox, setLoginBox] = useState(false);
@@ -69,7 +70,7 @@ const Tabs = () => {
                                 Dashboard
                                 <TfiDashboard className='text-3xl pl-2'/>
                             </Link> <hr className='border-gray-700' />
-                            <Link to='test' className='flex flex-row py-5 items-center justify-center hover:bg-gray-700 text-center'>
+                            <Link to='slot' className='flex flex-row py-5 items-center justify-center hover:bg-gray-700 text-center'>
                                 {/* <a href='#slots' className='text-right'>Slots</a> */}
                                 Slots
                                 <GiSloth className='text-3xl pl-2'/>
@@ -104,9 +105,12 @@ const Tabs = () => {
                     
                 </div>
             </header>
-            <body>
+            <body style={{paddingLeft : menu ? '230px' : '100px'}} className='pt-20 transition-all duration-300 min-h-screen bg-slate-200'>
                 <Routes>
                     <Route path='/' element={<Dashboard />} />
+                    <Route path='slot' element={<Test />} />
+                    <Route path="vendorDash" element={<Dashboard />} />
+                    
                 </Routes>
             </body>
         </>

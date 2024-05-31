@@ -1,10 +1,8 @@
 // src/UserHeader.js
 import React, { useState } from 'react';
 import { CgProfile } from "react-icons/cg";
-import UserHome from './UserHome';
-import { Route, Routes, useNavigate } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import ServicePage from './ServicePage';
-import Vendors from './Vendors';
 
 const UserHeader = () => {
     const [loginBox, setLoginBox] = useState(false);
@@ -19,8 +17,6 @@ const UserHeader = () => {
         setLoginBox(false);
     }
     
-    // const navigate = useNavigate();
-    // navigate('services')
     const dropdown = () => {
         return (
             <ul className='absolute w-40 bg-gray-700 top-16 right-10 rounded-md text-center transition-transform duration-500 ease-out transform origin-top'>

@@ -4,7 +4,7 @@ const Test = () => {
     // window.location.reload();
     console.log('this is testing page...')
   return (
-    <div className='p-52 text-white'>
+    <div className='text-black'>
       Testing page for vendor...
     </div>
   )
