@@ -11,6 +11,8 @@ import { RiStickyNoteAddFill } from "react-icons/ri";
 import Dashboard from './Dashboard';
 import AddServices from './AddServices';
 import Documents from './Documents';
+import LeavesList from './LeavesList';
+import RatesList from './RatesList';
 
 const AdminTabs = () => {
     const [loginBox, setLoginBox] = useState(false);
@@ -82,11 +84,11 @@ const AdminTabs = () => {
                                 Documents
                                 <IoDocuments className='text-3xl pl-2'/>
                             </Link> <hr className='border-gray-700' />
-                            <Link to='Rates' className='flex flex-row py-5 items-center justify-center hover:bg-gray-700 text-center'>
+                            <Link to='rateslist' className='flex flex-row py-5 items-center justify-center hover:bg-gray-700 text-center'>
                                 Rate
                                 <FaRupeeSign className='text-2xl pl-2'/>
                             </Link> <hr className='border-gray-700' />
-                            <Link to='leave' className='flex flex-row py-5 items-center justify-center hover:bg-gray-700 text-center'>
+                            <Link to='leveslist' className='flex flex-row py-5 items-center justify-center hover:bg-gray-700 text-center'>
                                 Leave
                                 <GiThreeLeaves className='text-3xl pl-2'/>
                             </Link> <hr className='border-gray-700' />
@@ -103,10 +105,10 @@ const AdminTabs = () => {
                             <Link to='documents' className='flex flex-row py-5 items-center justify-center hover:bg-gray-700 text-center'>
                                 <IoDocuments className='text-3xl pl-2'/>
                             </Link> <hr className='border-gray-700' />
-                            <Link to='slot' className='flex flex-row py-5 items-center justify-center hover:bg-gray-700 text-center'>
+                            <Link to='rateslist' className='flex flex-row py-5 items-center justify-center hover:bg-gray-700 text-center'>
                                 <FaRupeeSign className='text-3xl pl-2'/>
                             </Link> <hr className='border-gray-700' />
-                            <Link to='leave' className='flex flex-row py-5 items-center justify-center hover:bg-gray-700 text-center'>
+                            <Link to='leveslist' className='flex flex-row py-5 items-center justify-center hover:bg-gray-700 text-center'>
                                 <GiThreeLeaves className='text-3xl pl-2'/>
                             </Link> <hr className='border-gray-700' />
                             <li className='flex flex-row py-5 items-center justify-center hover:bg-gray-700 text-center'>
@@ -124,6 +126,8 @@ const AdminTabs = () => {
                     <Route path='adminDash' element={<Dashboard />} />
                     <Route path='addServices' element={<AddServices />} />
                     <Route path='documents' element={<Documents />} />
+                    <Route path='leveslist' element={<LeavesList />} />
+                    <Route path='rateslist' element={<RatesList />} />
                     {/* <Route path="vendorDash" element={<Dashboard />} />
                     <Route path='leave' element={<Leave />} /> */}
                 </Routes>

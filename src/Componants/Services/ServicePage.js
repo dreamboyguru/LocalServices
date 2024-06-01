@@ -23,7 +23,7 @@ function ServicePage() {
     <div className='pt-20 flex flex-wrap justify-center'>
       {services.length > 0 ? 
         services.map((service, index) => (
-          <div key={index} className='bg-gray-600 w-52 max-md:w-36 max-sm:w-full max-sm:h-auto h-auto m-2 max-md:m-1 rounded-md overflow-hidden shadow-lg p-0.5 hover:scale-110 duration-500'>
+          <div key={index} className='bg-gray-600 w-52 max-md:w-36 max-sm:w-[48%] max-sm:h-auto h-auto m-2 max-md:m-0.5 rounded-md overflow-hidden shadow-lg p-0.5 hover:scale-110 max-sm:hover:105 duration-500'>
             <img 
               src='https://img.freepik.com/vrije-vector/wilde-natuur-verticale-poster_23-2148724602.jpg?size=338&ext=jpg&ga=GA1.1.1546980028.1710633600&semt=ais' 
               alt={service.name} 

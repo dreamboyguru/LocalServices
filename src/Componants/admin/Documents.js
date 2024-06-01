@@ -37,56 +37,56 @@ const Documents = () => {
         <div className="rounded-md">
             {documentBox && documents()}
             <table className="min-w-full border-collapse shadow-lg max-md:text-xs">
-            <thead>
-                <tr className="bg-gray-500 text-white">
-                    <th colSpan="2" className="px-2 py-4 max-md:py-3 w-1/4 max-md:px-1">Name</th>
-                    <th className="px-2 py-4 max-md:py-3 w-1/3 max-md:w-1/4 max-md:px-1">Details</th>
-                    <th colSpan="2" className="px-2 py-4 max-md:py-3 w-1/3 max-md:px-1 md:hidden">Documents</th>
-                    <th className="px-2 py-4 max-md:py-3 w-1/4 max-md:px-1 max-md:hidden">Documents</th>
-                    <th className="px-2 py-4 max-md:py-3 w-1/6 max-md:px-1 max-md:hidden">Status</th>
-                </tr>
-            </thead>
-            <tbody className="text-center text-black" >
-                {data && data.map((item, index) =>
-                    <tr className="odd:bg-white even:bg-gray-50 border-b-4 border-gray-300" key={item.id}>
-                        <td className="px-2 max-md:px-1 py-4 max-md:py-1 text-2xl max-md:text-lg flex items-start">{index+1}</td>
-                        <td className="px-10 max-md:px-1 py-4 max-md:py-1">
-                            {/* <CgProfile className='w-full text-red-500 text-center' /> */}
-                            <img src={item.img} className='flex justify-center item-center size-36 max-md:h-20 max-md:size-28 rounded-full border-2 border-black'/>
-                            {item.name}
-                        </td>
-                        <td className="px-4 max-md:px-1 py-4 max-md:py-1 text-left">
-                            <div>Address : {item.address}</div>
-                            <div>Contact : {item.contact}</div>
-                        </td>
-                        
-                        <td className="px-4 max-md:px-1 py-4 max-md:py-1 max-md:hidden">
-                            <img 
-                                src={item.img} 
-                                className='w-60 h-36'
-                                onClick={()=>documentToggle(item.img)}
-                            />
-                        </td>
-                        {item.status === '0' ? 
-                            <td className="px-4 max-md:px-1 py-4 max-md:py-1 font-semibold text-green-600 max-md:hidden">Active</td> :
-                            <td className="px-4 max-md:px-1 py-4 max-md:py-1 font-semibold text-red-600 max-md:hidden">blocked</td>
-                        }
-
-                        {item.status === '0' ? 
-                            <td className="px-4 max-md:px-1 py-4 max-md:py-1 font-semibold text-green-600 md:hidden">
-                                <img src={item.img} className='w-60 h-20' onClick={()=>documentToggle(item.img)}/>
-                                Active
-                            </td> :
-                            <td className="px-4 max-md:px-1 py-4 max-md:py-1 font-semibold text-red-600 md:hidden">
-                                <img src={item.img} className='w-full h-20' onClick={()=>documentToggle(item.img)}/>
-                                blocked
-                            </td>
-                        }
+                <thead>
+                    <tr className="bg-gray-500 text-white">
+                        <th colSpan="2" className="px-2 py-4 max-md:py-3 w-1/4 max-md:px-1">Name</th>
+                        <th className="px-2 py-4 max-md:py-3 w-1/3 max-md:w-1/4 max-md:px-1">Details</th>
+                        <th colSpan="2" className="px-2 py-4 max-md:py-3 w-1/3 max-md:px-1 md:hidden">Documents</th>
+                        <th className="px-2 py-4 max-md:py-3 w-1/4 max-md:px-1 max-md:hidden">Documents</th>
+                        <th className="px-2 py-4 max-md:py-3 w-1/6 max-md:px-1 max-md:hidden">Status</th>
                     </tr>
-                )}
-                
-            </tbody>
-        </table>
+                </thead>
+                <tbody className="text-center text-black" >
+                    {data && data.map((item, index) =>
+                        <tr className="odd:bg-white even:bg-gray-50 border-b-4 border-gray-300" key={item.id}>
+                            <td className="px-2 max-md:px-1 py-4 max-md:py-1 text-2xl max-md:text-lg flex items-start">{index+1}</td>
+                            <td className="px-10 max-md:px-1 py-4 max-md:py-1">
+                                {/* <CgProfile className='w-full text-red-500 text-center' /> */}
+                                <img src={item.img} className='flex justify-center item-center size-36 max-md:h-20 max-md:size-28 rounded-full border-2 border-black'/>
+                                {item.name}
+                            </td>
+                            <td className="px-4 max-md:px-1 py-4 max-md:py-1 text-left">
+                                <div>Address : {item.address}</div>
+                                <div>Contact : {item.contact}</div>
+                            </td>
+                            
+                            <td className="px-4 max-md:px-1 py-4 max-md:py-1 max-md:hidden">
+                                <img 
+                                    src={item.img} 
+                                    className='w-60 h-36'
+                                    onClick={()=>documentToggle(item.img)}
+                                />
+                            </td>
+                            {item.status === '0' ? 
+                                <td className="px-4 max-md:px-1 py-4 max-md:py-1 font-semibold text-green-600 max-md:hidden">Active</td> :
+                                <td className="px-4 max-md:px-1 py-4 max-md:py-1 font-semibold text-red-600 max-md:hidden">blocked</td>
+                            }
+
+                            {item.status === '0' ? 
+                                <td className="px-4 max-md:px-1 py-4 max-md:py-1 font-semibold text-green-600 md:hidden">
+                                    <img src={item.img} className='w-60 h-20' onClick={()=>documentToggle(item.img)}/>
+                                    Active
+                                </td> :
+                                <td className="px-4 max-md:px-1 py-4 max-md:py-1 font-semibold text-red-600 md:hidden">
+                                    <img src={item.img} className='w-full h-20' onClick={()=>documentToggle(item.img)}/>
+                                    blocked
+                                </td>
+                            }
+                        </tr>
+                    )}
+                    
+                </tbody>
+            </table>
         </div>
     </div>
   )

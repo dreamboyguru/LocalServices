@@ -17,7 +17,7 @@ const AddServices = () => {
     const showAddAerviceBox = () => {
         return (
             <div className="fixed inset-0 flex items-center justify-center z-50 bg-gray-800 backdrop-blur-sm bg-opacity-75">
-                <div className='relative bg-white h-auto shadow-md p-5 w-96 items-center justify-center rounded'>
+                <div className='relative bg-white h-auto shadow-md p-5 w-96 -mt-28 items-center justify-center rounded'>
                     <RiCloseLine className='absolute top-1 right-1 text-2xl cursor-pointer hover:scale-150' onClick={AddServicesToggle} />
                     <form>
                         <div className="mb-4">
