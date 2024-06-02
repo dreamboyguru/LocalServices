@@ -109,7 +109,7 @@ const Header = () => {
                 loginType={loginType} 
                 loginShow={loginShow} 
                 userRegShow={userRegShow} 
-                VendorRegShow={VendorRegShow}/> 
+                VendorRegShow={VendorRegShow} /> 
             }
             {/* {VenderRegistrationBox && <VendorsReg VenderRegistrationShow={VenderRegistrationShow}/> } */}
             {register && <Register 

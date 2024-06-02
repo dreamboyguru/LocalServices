@@ -26,7 +26,7 @@ const Register = ({regType, RegistrationShow, userLoginShow, vendorLoginShow}) =
 
     return (
         <div className='flex justify-center px-5'>
-            <div className='absolute bg-gray-500 w-1/2 max-md:w-full p-4 max-md:p-1 text-white z-40 mt-8 max-md:mt-0 rounded-md shadow-lg'>
+            <div className='absolute bg-gray-500 w-1/2 max-md:w-[98%] p-4 max-md:p-2 max-md:mx-1 text-white z-40 mt-8 max-md:mt-0 rounded-md shadow-lg'>
                 <RiCloseLine 
                     className='absolute top-1 right-1 text-2xl cursor-pointer hover:scale-150' 
                     onClick={RegistrationShow}
@@ -48,54 +48,54 @@ const Register = ({regType, RegistrationShow, userLoginShow, vendorLoginShow}) =
                         {({ setFieldValue }) => (
                             <Form>
                                 <div className='flex flex-wrap justify-between text-sm max-md:text-xs font-serif'>
-                                    <div className='w-[48%] bg-gray-100 flex flex-col rounded-md text-black mb-4'>
+                                    <div className='w-[48%] bg-gray-100 flex flex-col rounded-md text-black mb-4 max-md:mb-2'>
                                         <div className='flex felx-col max-md:flex-row items-center'>
-                                            <label className='w-1/3 max-md:w-full pl-2 py-2 font-semibold'> First Name</label>
+                                            <label className='w-1/3 max-md:w-full pl-2 py-2 max-md:py-0.5 font-semibold'> First Name</label>
                                             <div className='flex justify-end w-2/3 pr-2'>
                                                 <ErrorMessage name='firstName' component='div' className='text-red-500 pl-2' />
                                             </div>
                                         </div>
-                                        <Field name='firstName' type='text' className='rounded-b-md pl-2 py-2 focus:outline-none' />
+                                        <Field name='firstName' type='text' className='rounded-b-md pl-2 py-2 max-md:py-0.5 focus:outline-none' />
                                     </div>
-                                    <div className='w-[48%] bg-gray-100 flex flex-col rounded-md text-black mb-4'>
+                                    <div className='w-[48%] bg-gray-100 flex flex-col rounded-md text-black mb-4 max-md:mb-2'>
                                         <div className='flex felx-col max-md:flex-row items-center'>
-                                            <label className='w-1/3 max-md:w-full pl-2 py-2 font-semibold'> Last Name</label>
+                                            <label className='w-1/3 max-md:w-full pl-2 py-2 max-md:py-0.5 font-semibold'> Last Name</label>
                                             <div className='flex justify-end w-2/3 pr-2'>
                                                 <ErrorMessage name='lastName' component='div' className='text-red-500 pl-2' />
                                             </div>
                                         </div>
-                                        <Field name='lastName' type='text' className='rounded-b-md pl-2 py-2 focus:outline-none' />
+                                        <Field name='lastName' type='text' className='rounded-b-md pl-2 py-2 max-md:py-0.5 focus:outline-none' />
                                     </div>
-                                    <div className='w-[48%] bg-gray-100 flex flex-col rounded-md text-black mb-4'>
+                                    <div className='w-[48%] bg-gray-100 flex flex-col rounded-md text-black mb-4 max-md:mb-2'>
                                         <div className='flex felx-col max-md:flex-row items-center'>
-                                            <label className='w-1/3 max-md:w-full pl-2 py-2 font-semibold'>Email</label>
+                                            <label className='w-1/3 max-md:w-full pl-2 py-2 max-md:py-0.5 font-semibold'>Email</label>
                                             <div className='flex justify-end w-2/3 pr-2'>
                                                 <ErrorMessage name='email' component='div' className='text-red-500 pl-2' />
                                             </div>
                                         </div>
-                                        <Field name='email' type='email' className='rounded-b-md pl-2 py-2 focus:outline-none' />
+                                        <Field name='email' type='email' className='rounded-b-md pl-2 py-2 max-md:py-0.5 focus:outline-none' />
                                     </div>
-                                    <div className='w-[48%] bg-gray-100 flex flex-col rounded-md text-black mb-4'>
+                                    <div className='w-[48%] bg-gray-100 flex flex-col rounded-md text-black mb-4 max-md:mb-2'>
                                         <div className='flex felx-col max-md:flex-row items-center'>
-                                            <label className='w-1/3 max-md:w-full pl-2 py-2 font-semibold'>Phone no</label>
+                                            <label className='w-1/3 max-md:w-full pl-2 py-2 max-md:py-0.5 font-semibold'>Phone no</label>
                                             <div className='flex justify-end w-2/3 pr-2'>
                                                 <ErrorMessage name='phone' component='div' className='text-red-500 pl-2' />
                                             </div>
                                         </div>
-                                        <Field name='phone' type='number' className='rounded-b-md pl-2 py-2 focus:outline-none' />
+                                        <Field name='phone' type='number' className='rounded-b-md pl-2 py-2 max-md:py-0.5 focus:outline-none' />
                                     </div>
-                                    <div className='w-full bg-gray-100 flex flex-col rounded-md text-black mb-4'>
+                                    <div className='w-full bg-gray-100 flex flex-col rounded-md text-black mb-4 max-md:mb-2'>
                                         <div className='flex felx-col max-md:flex-row items-center'>
-                                            <label className='w-1/3 max-md:w-full pl-2 py-2 font-semibold'>Address</label>
+                                            <label className='w-1/3 max-md:w-full pl-2 py-2 max-md:py-0.5 font-semibold'>Address</label>
                                             <div className='flex justify-left w-2/3 pr-2'>
                                                 <ErrorMessage name='address' component='div' className='text-red-500 pl-2' />
                                             </div>
                                         </div>
-                                        <Field name='address' as='textarea' className='h-20 rounded-b-md pl-2 py-2 focus:outline-none' />
+                                        <Field name='address' as='textarea' className='h-20 max-md:h-10 rounded-b-md pl-2 py-2 max-md:py-0.5 focus:outline-none' />
                                     </div>
-                                    <div className='w-full bg-gray-100 flex flex-col rounded-md text-black mb-4'>
+                                    <div className='w-full bg-gray-100 flex flex-col rounded-md text-black mb-4 max-md:mb-2'>
                                         <div className='flex felx-col max-md:flex-row items-center'>
-                                            <label className='w-1/3 max-md:w-full pl-2 py-2 font-semibold'>Photo</label>
+                                            <label className='w-1/3 max-md:w-full pl-2 py-2 max-md:py-0.5 font-semibold'>Photo</label>
                                             <div className='flex justify-left w-2/3 pr-2'>
                                                 <ErrorMessage name='photo' component='div' className='text-red-500 pl-2' />
                                             </div>
@@ -103,39 +103,40 @@ const Register = ({regType, RegistrationShow, userLoginShow, vendorLoginShow}) =
                                         <input 
                                             name='photo' 
                                             type='file' 
-                                            className='rounded-b-md pl-2 py-2 focus:outline-none' 
+                                            className='rounded-b-md pl-2 py-2 max-md:py-0.5 focus:outline-none' 
                                             onChange={(event) => {
                                                 setFieldValue('photo', event.currentTarget.files[0]);
                                             }}
                                         />
                                     </div>
-                                    <div className='w-[48%] bg-gray-100 flex flex-col rounded-md text-black mb-4'>
+                                    <div className='w-[48%] bg-gray-100 flex flex-col rounded-md text-black mb-4 max-md:mb-2'>
                                         <div className='flex felx-col max-md:flex-row items-center'>
-                                            <label className='w-1/3 max-md:w-full pl-2 py-2 font-semibold'> Password</label>
+                                            <label className='w-1/3 max-md:w-full pl-2 py-2 max-md:py-0.5 font-semibold'> Password</label>
                                             <div className='flex justify-end w-2/3 pr-2'>
                                                 <ErrorMessage name='password' component='div' className='text-red-500 pl-2' />
                                             </div>
                                         </div>
-                                        <Field name='password' type='text' className='rounded-b-md pl-2 py-2 focus:outline-none' />
+                                        <Field name='password' type='text' className='rounded-b-md pl-2 py-2 max-md:py-0.5 focus:outline-none' />
                                     </div>
-                                    <div className='w-[48%] bg-gray-100 flex flex-col rounded-md text-black mb-4'>
+                                    <div className='w-[48%] bg-gray-100 flex flex-col rounded-md text-black mb-4 max-md:mb-2'>
                                         <div className='flex felx-col max-md:flex-row items-center'>
-                                            <label className='w-1/3 max-md:w-full pl-2 py-2 font-semibold'>Re-Enter</label>
+                                            <label className='w-1/3 max-md:w-full pl-2 py-2 max-md:py-0.5 font-semibold'>Re-Enter</label>
                                             <div className='flex justify-end w-2/3 pr-2'>
                                                 <ErrorMessage name='reEnter' component='div' className='text-red-500 pl-2' />
                                             </div>
                                         </div>
-                                        <Field name='reEnter' type='text' className='rounded-b-md pl-2 py-2 focus:outline-none' />
+                                        <Field name='reEnter' type='text' className='rounded-b-md pl-2 py-2 max-md:py-0.5 focus:outline-none' />
                                     </div>
                                 </div>
-                                <div className='flex justify-end'>
-                                    <button type='submit' className='bg-white hover:bg-gray-300 text-black py-2 px-6 rounded-md'>Submit</button>
-                                </div>
+                                
+                                <div className='w-full'>
+                                        <button type='submit' className='w-full bg-gray-300 hover:bg-gray-50 text-black py-2 max-md:py-1 rounded-t-md'>Submit</button>
+                                    </div>
                             </Form>
                         )}
                     </Formik>
                 </div>
-                <div className='font-bold text-white pt-2 px-5'>
+                <div className='font-bold text-white pt-2 px-5 max-md:text-sm max-md:py-1 max-md:text-center '>
                     For Login 
                     <span
                         className='text-blue-700 hover:cursor-pointer hover:text-blue-800 pl-1'

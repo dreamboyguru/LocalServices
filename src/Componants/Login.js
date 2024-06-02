@@ -24,8 +24,8 @@ const Login = ({loginType, loginShow, userRegShow, VendorRegShow}) => {
     };
 
     return (
-        <div className='flex justify-center px-5'>
-            <div className='absolute bg-gray-500 w-1/3 max-md:w-[98%] p-4 max-md:p-1 text-white z-40 mt-20 max-md:mt-32 mx-5 rounded-md shadow-lg'>
+        <div className='flex justify-center px-5 '>
+            <div className='absolute bg-gray-500 w-1/3 max-md:w-[90%] p-4 max-md:p-2 text-white z-40 mt-20 max-md:mt-32 rounded-md shadow-lg'>
                 <RiCloseLine 
                     className='absolute top-1 right-1 text-2xl cursor-pointer hover:scale-150' 
                     onClick={loginShow}
@@ -62,8 +62,13 @@ const Login = ({loginType, loginShow, userRegShow, VendorRegShow}) => {
                                         <Field name='password' type='text' className='rounded-b-md pl-2 py-2 focus:outline-none' />
                                     </div>
                                 </div>
-                                <div className='flex justify-end'>
-                                    <button type='submit' className='bg-white hover:bg-gray-300 text-black py-2 px-6 rounded-md'>Submit</button>
+                                <div className='flex flex-row justify-between items-center'>
+                                    <div className=' text-gray-50 hover:cursor-wait ml-5 max-md:ml-1'>
+                                        Forgot password ?
+                                    </div>
+                                    <div className='mr-5 max-md:mr-2'>
+                                        <button type='submit' className='bg-gray-300 hover:bg-gray-50 text-black py-2 max-md:py-1 px-6 rounded-md'>Submit</button>
+                                    </div>
                                 </div>
                             </Form>
                         )}
