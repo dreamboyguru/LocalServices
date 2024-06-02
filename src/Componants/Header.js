@@ -4,9 +4,15 @@ import { CgProfile } from "react-icons/cg";
 import Tabs from './Vendor/Tabs';
 import UserHeader from './Services/UserHeader';
 import AdminTabs from './admin/AdminTabs';
+import Login from './Login';
+import Register from './Register';
 
 const Header = () => {
     const [loginBox, setLoginBox] = useState(false);
+    const [login, setLogin] = useState(false);
+    const [loginType, setloginType] = useState('');
+    const [register, setRegister] = useState(false);
+    const [regType, setRegType] = useState('');
 
     const [selectedComponent, setSelectedComponent] = useState(null);
     const type = localStorage.getItem('type') || null;
@@ -40,45 +46,98 @@ const Header = () => {
         setLoginBox(false);
     }
 
+    const RegistrationShow = () => {
+        setRegister(false)
+    }
+
+    const loginShow = () => {
+        setLogin(false);
+    }
+
+    const userLoginShow = () => {
+        setRegType('User');
+        setRegister(false);
+        setLogin(true)
+    }
+
+    const vendorLoginShow = () => {
+        setRegType('Vendor');
+        setRegister(false);
+        setLogin(true)
+    }
+
+    const userRegShow = () => {
+        setRegType('User');
+        setLogin(false);
+        setRegister(true);
+    }
+    const VendorRegShow = () => {
+        setRegType('Vendor');
+        setLogin(false);
+        setRegister(true);
+    }
+
     const dropdown = () => {
         return (
-            <ul className='absolute w-40 bg-gray-700 top-16 right-10 rounded-md text-center transition-transform duration-500 ease-out transform origin-top'>
-                <li onClick={()=>handleClick('Component1')} className='py-2 hover:bg-gray-600'>User</li>
-                <li onClick={()=>handleClick('Component2')} className='py-2 hover:bg-gray-600'>Vendor</li>
-                <li onClick={()=>handleClick('Component3')} className='py-2 hover:bg-gray-600'>Admin</li>
+            <ul className='absolute w-40 bg-gray-700 top-16 right-10 rounded-b-md text-center transition-transform duration-500 ease-out transform origin-top'>
+                <li onClick={()=>{
+                        setloginType('User');
+                        setLogin(true);
+                    }} 
+                    className='py-2 hover:bg-gray-600 border-t border-gray-800'>
+                User</li>
+                <li onClick={()=>{
+                        setloginType('Vendor');
+                        setLogin(true);
+                    }} 
+                    className='py-2 hover:bg-gray-600 border-t border-gray-800'>
+                Vendor</li>
+                <li onClick={()=>{
+                        setloginType('Admin');
+                        setLogin(true)
+                    }} 
+                    className='py-2 hover:bg-gray-600 border-t border-gray-800'>
+                Admin</li>
             </ul>
         );
     }
-
-    return (
-    //     <div>
-    //   <button onClick={() => handleClick('Component1')}>Component 1</button>
-    //   <button onClick={() => handleClick('Component2')}>Component 2</button>
-    //   <button onClick={() => handleClick('Component3')}>Component 3</button>
-
-    //   {selectedComponent && (
-    //     selectedComponent
-    //   )}
-    // </div>
     
-        selectedComponent !== null ? 
-            selectedComponent  : 
-            <header className='fixed w-full bg-gray-600 p-4 flex flex-row justify-between items-center shadow-md px-14'
-                onClick={loginToggleShow}
-            >{type !== null ? handleClick(type) : null}
-                <h1>Logo</h1>
-                <nav>
-                    <ul className='flex flex-row space-x-4'>
-                        <li><a href='#about'>About Us</a></li>
-                        <li><a href='#contact'>Contact Us</a></li>
-                        <li onClick={loginToggle}>
-                            <CgProfile size={32} className='ml-2 hover:scale-110 duration-300'/>
-                            {loginBox && dropdown()}
-                        </li>
-                    </ul>
-                </nav>
-            </header>
-        
+
+    return (    
+        <>
+            {login && <Login 
+                loginType={loginType} 
+                loginShow={loginShow} 
+                userRegShow={userRegShow} 
+                VendorRegShow={VendorRegShow}/> 
+            }
+            {/* {VenderRegistrationBox && <VendorsReg VenderRegistrationShow={VenderRegistrationShow}/> } */}
+            {register && <Register 
+                regType={regType} 
+                RegistrationShow={RegistrationShow} 
+                userLoginShow={userLoginShow} 
+                vendorLoginShow={vendorLoginShow}/>
+            }
+            {selectedComponent === null ? 
+                <header className='fixed w-full bg-gray-600 p-4 flex flex-row justify-between items-center shadow-md px-14'
+                    onClick={loginToggleShow}
+                >{type !== null ? handleClick(type) : null}
+                    <h1>Logo</h1>
+                    <nav>
+                        <ul className='flex flex-row space-x-4'>
+                            <li><a href='#about'>About Us</a></li>
+                            <li><a href='#contact'>Contact Us</a></li>
+                            <li onClick={loginToggle}>
+                                <CgProfile size={32} className='ml-2 hover:scale-110 duration-300'/>
+                                {loginBox && dropdown()}
+                            </li>
+                        </ul>
+                    </nav>
+                </header> :
+                selectedComponent
+            }
+        </>
+            
     );
 }
 

@@ -9,13 +9,15 @@ const Leave = () => {
     ]
   return (
     <div className="flex flex-wrap">
-        <div className="bg-white rounded-md shadow-lg p-8 w-[40%] max-md:w-full mb-5 max-md:text-sm h-60">
-            <h1 className="text-2xl max-md:text-lg font-bold text-center text-gray-800 mb-6">Select Leave Applying Date</h1>
-            <div className="flex justify-center">
-            <input type="date" className="text-2xl text-black text-center border border-gray-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-gray-500" />
-            </div>
-            <div className='w-full'>
-                <button type='submit' className='p-3 px-4 mt-5 bg-gray-500 text-2xl max-md:text-lg hover:bg-gray-600 w-full rounded-md hover:scale-105 duration-300'>Submit</button>
+        <div className="bg-white rounded-md shadow-lg p-4 px-10 max-md:p-2 w-[40%] max-md:w-full mb-5 max-md:text-sm h-40 max-md:h-auto">
+            <h1 className="text-2xl max-md:text-lg font-bold text-center text-gray-800 mb-6 max-md:mb-2">Select Leave Applying Date</h1>
+            <div className='flex flex-row'>
+                <div className="flex justify-center w-full">
+                    <input type="date" className="w-full text-2xl max-md:text-sm text-black text-center border border-gray-300 rounded-l-lg p-2 max-md:p-1 focus:outline-none focus:ring-1 focus:ring-gray-100" />
+                </div>
+                <div className='w-1/3'>
+                    <button type='submit' className='p-3 max-md:p-1 px-4 bg-gray-500 text-2xl max-md:text-lg hover:bg-gray-600 w-full rounded-r-md duration-300'>Submit</button>
+                </div>
             </div>
         </div>
         <div className="shadow-lg w-[58%] max-md:w-full mb-5 ml-5 max-md:ml-0 h-auto">
