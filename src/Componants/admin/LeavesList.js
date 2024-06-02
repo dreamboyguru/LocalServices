@@ -14,22 +14,22 @@ const LeavesList = () => {
                 <thead>
                     <tr className="bg-gray-500 text-white">
                         <th className="border border-gray-300 px-4 py-4 max-md:py-4 w-1/12 max-md:px-1">SL.No</th>
-                        <th className="border border-gray-300 px-4 py-4 max-md:py-4 w-3/12 max-md:px-1">Name</th>
-                        <th className="border border-gray-300 px-4 py-4 max-md:py-4 w-3/12 max-md:px-1">Applied Date</th>
-                        <th className="border border-gray-300 px-4 py-4 max-md:py-4 w-4/12 max-md:px-1">Status</th>
+                        <th className="border border-gray-300 px-4 py-4 max-md:py-4 w-4/12  max-md:px-1">Name</th>
+                        <th className="border border-gray-300 px-4 py-4 max-md:py-4 w-5/12 max-md:px-1">Applied Date</th>
+                        <th className="border border-gray-300 px-4 py-4 max-md:py-4 w-2/12 max-md:px-1">Status</th>
                     </tr>
                 </thead>
                 <tbody className="text-center text-black">
                     {leave && leave.map((item, index) =>
                         <tr className="odd:bg-white even:bg-gray-50" key={item.id}>
-                            <td className="border border-gray-300 px-4 py-4">{index+1}</td>
-                            <td className="border border-gray-300 px-4 py-4">{item.name}</td>
-                            <td className="border border-gray-300 px-4 py-4">{item.date}</td>
+                            <td className="border border-gray-300 px-4 max-md:px-1 py-3">{index+1}</td>
+                            <td className="border border-gray-300 px-4 max-md:px-1 py-3">{item.name}</td>
+                            <td className="border border-gray-300 px-4 max-md:px-1 py-3">{item.date}</td>
                             {item.status === '0' ? 
-                                <td className="border border-gray-300 px-4 py-4 font-bold text-yellow-600">Processing</td> :
+                                <td className="border border-gray-300 px-4 max-md:px-1 py-3 font-bold text-yellow-600">Processing</td> :
                                 item.status === '1' ?
-                                    <td className="border border-gray-300 px-4 py-4 font-bold text-green-600">Approved</td> :
-                                    <td className="border border-gray-300 px-4 py-4 font-bold text-red-600">Rejected</td>
+                                    <td className="border border-gray-300 px-4 max-md:px-1 py-3 font-bold text-green-600">Approved</td> :
+                                    <td className="border border-gray-300 px-4 max-md:px-1 py-3 font-bold text-red-600">Rejected</td>
                             }
                         </tr>
                     )}
