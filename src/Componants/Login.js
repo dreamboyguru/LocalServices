@@ -25,7 +25,7 @@ const Login = ({loginType, loginShow, userRegShow, VendorRegShow}) => {
 
     return (
         <div className='flex justify-center px-5 '>
-            <div className='absolute bg-gray-500 w-1/3 max-md:w-[90%] p-4 max-md:p-2 text-white z-40 mt-20 max-md:mt-32 rounded-md shadow-lg'>
+            <div className='absolute bg-gray-500 w-1/3 max-md:w-[90%] p-4 max-md:p-2 text-white z-40 mt-20 max-md:mt-24 rounded-md shadow-lg bg-opacity-90'>
                 <RiCloseLine 
                     className='absolute top-1 right-1 text-2xl cursor-pointer hover:scale-150' 
                     onClick={loginShow}

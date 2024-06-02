@@ -79,7 +79,7 @@ const Header = () => {
 
     const dropdown = () => {
         return (
-            <ul className='absolute w-40 bg-gray-700 top-16 right-10 rounded-b-md text-center transition-transform duration-500 ease-out transform origin-top'>
+            <ul className='absolute w-40 bg-gray-700 top-16 right-10 rounded-b-md text-center transition-transform duration-500 ease-out transform origin-top bg-opacity-80'>
                 <li onClick={()=>{
                         setloginType('User');
                         setLogin(true);
@@ -119,21 +119,38 @@ const Header = () => {
                 vendorLoginShow={vendorLoginShow}/>
             }
             {selectedComponent === null ? 
-                <header className='fixed w-full bg-gray-600 p-4 flex flex-row justify-between items-center shadow-md px-14'
-                    onClick={loginToggleShow}
-                >{type !== null ? handleClick(type) : null}
-                    <h1>Logo</h1>
-                    <nav>
-                        <ul className='flex flex-row space-x-4'>
-                            <li><a href='#about'>About Us</a></li>
-                            <li><a href='#contact'>Contact Us</a></li>
-                            <li onClick={loginToggle}>
-                                <CgProfile size={32} className='ml-2 hover:scale-110 duration-300'/>
-                                {loginBox && dropdown()}
-                            </li>
-                        </ul>
-                    </nav>
-                </header> :
+                <div>
+                    <header className='fixed w-full bg-gray-700 p-4 flex flex-row justify-between items-center shadow-md px-14 z-10 bg-opacity-80 max-md:hidden'
+                        onClick={loginToggleShow}
+                    >{type !== null ? handleClick(type) : null}
+                        <h1 className='text-2xl'>Logo</h1>
+                        <nav>
+                            <ul className='flex flex-row space-x-4'>
+                                <li><a href='#about'>About Us</a></li>
+                                <li><a href='#contact'>Contact Us</a></li>
+                                <li onClick={loginToggle}>
+                                    <CgProfile size={32} className='ml-2 hover:scale-110 duration-300'/>
+                                    {loginBox && dropdown()}
+                                </li>
+                            </ul>
+                        </nav>
+                    </header>
+                    <header className='fixed w-full bg-gray-700 p-4 flex flex-row justify-between items-center shadow-md z-10 bg-opacity-80 md:hidden text-sm'
+                        onClick={loginToggleShow}
+                    >{type !== null ? handleClick(type) : null}
+                        <h1 className='text-xl'>Logo</h1>
+                        <nav>
+                            <ul className='flex flex-row space-x-4 items-center'>
+                                <li><a href='#about'>About Us</a></li>
+                                <li><a href='#contact'>Contact Us</a></li>
+                                <li onClick={loginToggle}>
+                                    <CgProfile size={32} className='ml-2 hover:scale-110 duration-300'/>
+                                    {loginBox && dropdown()}
+                                </li>
+                            </ul>
+                        </nav>
+                    </header>
+                </div> :
                 selectedComponent
             }
         </>

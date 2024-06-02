@@ -1,45 +1,62 @@
 import React, { useState, useEffect } from 'react';
+import img from '../../Images/water.png';
+import bg1 from '../../Images/bg1.jpg';
+import listCheck from '../../Images/list-check.png';
 
 const ImageSlider = () => {
-    const images = [
-        'data:image/jpeg;base64,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',
-        'https://via.placeholder.com/800x300?text=Slide+2',
-        'https://via.placeholder.com/800x300?text=Slide+3'
-    ];
-
-    const [currentIndex, setCurrentIndex] = useState(0);
-
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-        }, 3000); // Change image every 3 seconds
-
-        return () => clearInterval(interval);
-    }, [images.length]);
-
-    const goToPrevious = () => {
-        setCurrentIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
-    };
-
-    const goToNext = () => {
-        setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-    };
-
+    
     return (
-        <div className="relative max-w-full min-h-96 overflow-hidden rounded-sm">
-            <button onClick={goToPrevious} className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white p-2 opacity-50 hover:opacity-100 transition-opacity z-40 size-12 h-24 rounded-sm">
-                ‹
-            </button>
-            <div className="flex transition-transform duration-500" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
-                {images.map((image, index) => (
-                    <div key={index} className="min-w-full h-96">
-                        <img src={image} alt={`Slide ${index}`} className="w-full h-full object-cover" />
+        <div className=" w-full z-20">
+            <div className='relative'>
+                <img src={img} alt='ji' className="w-full h-[550px] max-md:h-[400px]" />
+                <div className='absolute inset-28 max-md:inset-0 text-black w-1/3 max-md:w-full max-md:mt-20'>
+                    <h2 className="text-4xl max-md:text-xl max-md:ml-5 font-bold mb-2 max-md:mb-0 max-md:mt-2 text-blue-400 font-mono">Local Services Portal</h2>
+                    <div className="flex flex-wrap list-disc pl-5 max-md:pl-1 px-1 max-md:px-1 justify-between max-md:justify-start">
+                        
+                        <div className='w-1/3 max-md:w-5/12 flex flex-row items-center p-1 text-lg max-md:text-xs max-md:pl-5'>
+                            <div className=''>
+                                <img src={listCheck} className='size-4'/>
+                            </div>
+                            <div className='pl-5'>Plumbers</div>
+                        </div><div className='w-1/3 max-md:w-5/12 flex flex-row items-center p-1 text-lg max-md:text-xs max-md:pl-5'>
+                            <div className=''>
+                                <img src={listCheck} className='size-4'/>
+                            </div>
+                            <div className='pl-5'>Carpenters </div>
+                        </div>
+                        <div className='w-1/3 max-md:w-5/12 flex flex-row items-center p-1 text-lg max-md:text-xs max-md:pl-5'>
+                            <div className=''>
+                                <img src={listCheck} className='size-4'/>
+                            </div>
+                            <div className='pl-5'>Electricians</div>
+                        </div>
+                        <div className='w-1/3 max-md:w-5/12 flex flex-row items-center p-1 text-lg max-md:text-xs max-md:pl-5'>
+                            <div className=''>
+                                <img src={listCheck} className='size-4'/>
+                            </div>
+                            <div className='pl-5'>Plumbers </div>
+                        </div><div className='w-1/3 max-md:w-5/12 flex flex-row items-center p-1 text-lg max-md:text-xs max-md:pl-5'>
+                            <div className=''>
+                                <img src={listCheck} className='size-4'/>
+                            </div>
+                            <div className='pl-5'>Plumbers </div>
+                        </div>
+                        <div className='w-1/3 max-md:w-5/12 flex flex-row items-center p-1 text-lg max-md:text-xs max-md:pl-5'>
+                            <div className=''>
+                                <img src={listCheck} className='size-4'/>
+                            </div>
+                            <div className='pl-5'>Plumbers </div>
+                        </div>
+                        
                     </div>
-                ))}
+                </div>
             </div>
-            <button onClick={goToNext} className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white p-2 opacity-50 hover:opacity-100 transition-opacity z-40 size-12 h-24 rounded-sm">
-                ›
-            </button>
+
+            <div className='relative'>
+                <img src={bg1} alt='ji' className="w-full h-[550px] max-md:h-[400px]" />
+                <div className='absolute inset-28  text-black'> sdfkvnj</div>
+            </div>
+            
         </div>
     );
 };
