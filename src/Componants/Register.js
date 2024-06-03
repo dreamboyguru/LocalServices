@@ -1,9 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { RiCloseLine } from 'react-icons/ri';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
+import axios from 'axios';
 
 const Register = ({regType, RegistrationShow, userLoginShow, vendorLoginShow}) => {
+    const [loginBox, setLoginBox] = useState(false);
+    const [error, setError] = useState(false);
+    const [errorMsg, setErrorMsg] = useState('')
+    const url = process.env.REACT_APP_API_URL;
+    
     // Define the validation schema with Yup
     const validationSchema = Yup.object({
         firstName: Yup.string().required('Required'),
@@ -21,17 +27,47 @@ const Register = ({regType, RegistrationShow, userLoginShow, vendorLoginShow}) =
     // Handle form submission
     const handleSubmit = (values) => {
         console.log(values);
-        // You can handle form submission here, like sending the data to a server
+        if (regType === 'User') {
+            return;
+        } else if (regType === 'Vendor') {
+            const formData = new FormData();
+            formData.append('firstName', values.firstName);
+            formData.append('lastName', values.lastName);
+            formData.append('email', values.email);
+            formData.append('phone', values.phone);
+            formData.append('address', values.address);
+            formData.append('photo', values.photo);
+            formData.append('password', values.password);
+            formData.append('reEnter', values.reEnter);
+            axios.post(`${url}/vendor/register/api`, formData, {
+                headers : {
+                    'Content-Type' : 'multipart/form-data'
+                }
+            })
+                .then(response => {
+                    console.log(response.data);
+                    if(response.status === 200) {
+                        setLoginBox(true);
+                    }
+                })
+                .catch(err => {
+                    console.error('Error registering vendor:', err);
+                    setErrorMsg(err.response.data.message);
+                    setError(true)
+                });
+        }
     };
 
     return (
         <div className='flex justify-center px-5'>
+            {loginBox && userLoginShow()}
             <div className='absolute bg-gray-500 w-1/2 max-md:w-[98%] p-4 max-md:p-2 max-md:mx-1 text-white z-40 mt-8 max-md:mt-24 rounded-md shadow-lg bg-opacity-90'>
                 <RiCloseLine 
                     className='absolute top-1 right-1 text-2xl cursor-pointer hover:scale-150' 
                     onClick={RegistrationShow}
                 />
                 <div className='text-2xl max-md:text-lg font-bold text-center border-b-2 pb-2 mb-4 max-md:mb-2'>{regType} Registration Form</div>
+                {error && <div className='flex justify-center text-lg max-md:text-sm -mt-3 text-red-500'>{errorMsg}</div>}
                 <div className='border rounded-md border-gray-400 p-4 max-md:p-1'>
                     <Formik
                         initialValues={{

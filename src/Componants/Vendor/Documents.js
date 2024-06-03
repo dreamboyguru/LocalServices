@@ -36,7 +36,7 @@ const Documents = () => {
     }
   return (
     <section className='flex w-full h-screen bg-gray-50  justify-center pt-20 pb-72 max-md:pb-96 duration-300 text-sm max-md:text-xs'>
-        <div className='bg-white text-black w-5/12 max-md:w-[95%] h-auto min-h-80 p-2 rounded-md shadow-lg'>
+        <div className='bg-white text-black w-5/12 max-md:w-[95%] h-auto min-h-72 p-2 rounded-md shadow-lg'>
             <div className='border-b-2 py-1 text-2xl max-md:text-sm flex flex-row items-center mb-2'>
                 <RiArrowGoBackFill 
                     className='size-7 max-md:size-5 hover:scale-110 ml-5 max-md:ml-2 mr-28 max-md:mr-8'
@@ -102,7 +102,7 @@ const Documents = () => {
             </div>}
 
             {role !== null && 
-                <div className='flex justify-center items-center mt-4 max-md:mt-8 text-lg text-yellow-500'>
+                <div className='flex justify-center items-center mt-8 max-md:mt-6 text-lg text-yellow-500'>
                     <p>Verifying Your Documents</p>
                 </div>
             }

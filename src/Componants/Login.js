@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { RiCloseLine } from 'react-icons/ri';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 
 const Login = ({loginType, loginShow, userRegShow, VendorRegShow}) => {
+    const [errorMessage, setErrorMessage] = useState('');
     // Define the validation schema with Yup
     const validationSchema = Yup.object({
         email: Yup.string().required('Required'),
@@ -18,7 +19,13 @@ const Login = ({loginType, loginShow, userRegShow, VendorRegShow}) => {
         } else if(loginType === 'Vendor') {
             localStorage.setItem('type', 'Component2');
         } else if(loginType === 'Admin') {
-            localStorage.setItem('type', 'Component3');
+            if(values.email === 'admin' && values.password === 'admin') {
+                localStorage.setItem('adminAuth', true);
+                localStorage.setItem('type', 'Component3');
+            } else{
+                setErrorMessage('User Name and Password Wrong')
+                return
+            }
         }
         window.location.reload();
     };
@@ -31,6 +38,7 @@ const Login = ({loginType, loginShow, userRegShow, VendorRegShow}) => {
                     onClick={loginShow}
                 />
                 <div className='text-2xl max-md:text-lg font-bold text-center border-b-2 pb-2 mb-4 max-md:mb-2'>{loginType} Login Form</div>
+                {errorMessage && <div className='flex justify-center text-red-300 sm:-mt-3 text-sm max-md:text-xs pb-0.5'>{errorMessage}</div>}
                 <div className='border rounded-md border-gray-400 p-4 max-md:p-1'>
                     <Formik
                         initialValues={{
@@ -45,12 +53,12 @@ const Login = ({loginType, loginShow, userRegShow, VendorRegShow}) => {
                                 <div className='flex flex-wrap justify-between text-sm max-md:text-xs font-serif'>
                                     <div className='w-full bg-gray-100 flex flex-col rounded-md text-black mb-4'>
                                         <div className='flex felx-col max-md:flex-row items-center'>
-                                            <label className='w-1/3 max-md:w-full pl-2 py-2 font-semibold'>Email</label>
+                                            <label className='w-1/3 max-md:w-full pl-2 py-2 font-semibold'>UserName</label>
                                             <div className='flex justify-end w-2/3 pr-2'>
                                                 <ErrorMessage name='email' component='div' className='text-red-500 pl-2' />
                                             </div>
                                         </div>
-                                        <Field name='email' type='email' className='rounded-b-md pl-2 py-2 focus:outline-none' />
+                                        <Field name='email' type='text' className='rounded-b-md pl-2 py-2 focus:outline-none' />
                                     </div>
                                     <div className='w-full bg-gray-100 flex flex-col rounded-md text-black mb-4'>
                                         <div className='flex felx-col max-md:flex-row items-center'>
