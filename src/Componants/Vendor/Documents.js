@@ -36,7 +36,7 @@ const Documents = () => {
     }
   return (
     <section className='flex w-full h-screen bg-gray-50  justify-center pt-20 pb-72 max-md:pb-96 duration-300 text-sm max-md:text-xs'>
-        <div className='bg-white text-black w-1/2 max-md:w-[98%] h-auto min-h-80 p-2 rounded-md shadow-lg'>
+        <div className='bg-white text-black w-5/12 max-md:w-[95%] h-auto min-h-80 p-2 rounded-md shadow-lg'>
             <div className='border-b-2 py-1 text-2xl max-md:text-sm flex flex-row items-center mb-2'>
                 <RiArrowGoBackFill 
                     className='size-7 max-md:size-5 hover:scale-110 ml-5 max-md:ml-2 mr-28 max-md:mr-8'
@@ -76,7 +76,7 @@ const Documents = () => {
                 </div>
             </div>
             {role !== null && <div>
-                <div className='flex flex-row justify-between max-md:justify-start items-center px-10 max-md:px-0 mb-2'>
+                <div className='flex flex-row justify-between max-md:justify-start items-center px-10 max-md:px-2 mb-2'>
                     <label className='w-1/6 max-md:w-1/3 font-semibold' >Adhar card : </label>
                     <div className='w-3/4 max-md:w-2/3 flex flex-row items-center justify-between border border-gray-500 rounded-md max-md:ml-3'>
                         <input type='file' className='rounded-l-md pl-1 max-md:pl-0.5'/>
@@ -84,7 +84,7 @@ const Documents = () => {
                     </div>
                 </div>
 
-                <div className='flex flex-row justify-between max-md:justify-start items-center px-10 max-md:px-0 mb-2'>
+                <div className='flex flex-row justify-between max-md:justify-start items-center px-10 max-md:px-2 mb-2'>
                     <label className='w-1/6 max-md:w-1/3 font-semibold' >Pan card : </label>
                     <div className='w-3/4 max-md:w-2/3 flex flex-row items-center justify-between border border-gray-500 rounded-md max-md:ml-3'>
                         <input type='file' className='rounded-l-md pl-1 max-md:pl-0.5'/>
@@ -92,7 +92,7 @@ const Documents = () => {
                     </div>
                 </div>
 
-                <div className='flex flex-row justify-between max-md:justify-start items-center px-10 max-md:px-0 mb-2'>
+                <div className='flex flex-row justify-between max-md:justify-start items-center px-10 max-md:px-2 mb-2'>
                     <label className='w-1/6 max-md:w-1/3 font-semibold' >{role === 'Driver' ? 'DL Card' : 'ID Card'} : </label>
                     <div className='w-3/4 max-md:w-2/3 flex flex-row items-center justify-between border border-gray-500 rounded-md max-md:ml-3'>
                         <input type='file' className='rounded-l-md pl-1 max-md:pl-0.5'/>
