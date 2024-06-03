@@ -14,6 +14,7 @@ import Documents from './Documents';
 const Tabs = () => {
     const [loginBox, setLoginBox] = useState(false);
     const [menu, setMenu] = useState(false);
+    const [docVerified, setDocVerified] = useState(false)
 
     const loginToggle = (e) => {
         e.stopPropagation(); // Prevent triggering the header's onClick
@@ -39,8 +40,8 @@ const Tabs = () => {
     }
 
     return (
-        <>
-            <header onClick={loginToggleShow} className='hidden'>
+        docVerified ? <>
+            <header onClick={loginToggleShow} >
                 
                 <div className='fixed w-full bg-gray-800 p-4 flex justify-between items-center shadow-md px-6 md:px-14 text-white'>
                     <nav className='flex flex-row'>
@@ -118,7 +119,8 @@ const Tabs = () => {
                     <Route path='leave' element={<Leave />} />
                 </Routes>
             </body>
-        </>
+        </> :
+        <Documents />
     );
 };
 

@@ -35,7 +35,7 @@ const Documents = () => {
         setRole(selectedOption);
     }
   return (
-    <section className='flex w-full border-2 justify-center items-center -pl-20 duration-300 text-sm max-md:text-xs'>
+    <section className='flex w-full h-screen bg-gray-50  justify-center pt-20 pb-72 max-md:pb-96 duration-300 text-sm max-md:text-xs'>
         <div className='bg-white text-black w-1/2 max-md:w-[98%] h-auto min-h-80 p-2 rounded-md shadow-lg'>
             <div className='border-b-2 py-1 text-2xl max-md:text-sm flex flex-row items-center mb-2'>
                 <RiArrowGoBackFill 
