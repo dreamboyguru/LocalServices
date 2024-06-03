@@ -9,6 +9,7 @@ import Dashboard from './Dashboard';
 import Test from './Test';
 import Slots from './Slots';
 import Leave from './Leave';
+import Documents from './Documents';
 
 const Tabs = () => {
     const [loginBox, setLoginBox] = useState(false);
@@ -39,7 +40,8 @@ const Tabs = () => {
 
     return (
         <>
-            <header onClick={loginToggleShow}>
+            <header onClick={loginToggleShow} className='hidden'>
+                
                 <div className='fixed w-full bg-gray-800 p-4 flex justify-between items-center shadow-md px-6 md:px-14 text-white'>
                     <nav className='flex flex-row'>
                         <h1 className='text-2xl font-bold'>Logo</h1>
@@ -110,6 +112,7 @@ const Tabs = () => {
             <body  className={`container ${menu ? 'menu-open' : null} pt-20 transition-all duration-300 min-h-screen bg-slate-200 w-full font-serif`}>
                 <Routes>
                     <Route path='/' element={<Dashboard />} />
+                    <Route path='/documents' element={<Documents />} />
                     <Route path='slot' element={<Slots />} />
                     <Route path="vendorDash" element={<Dashboard />} />
                     <Route path='leave' element={<Leave />} />
