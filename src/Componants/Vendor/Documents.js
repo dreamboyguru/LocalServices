@@ -1,11 +1,15 @@
-import React, { useState } from 'react'
+import axios from 'axios';
+import React, { useEffect, useState } from 'react'
 import { RiArrowGoBackFill } from "react-icons/ri";
 
 const Documents = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [selectedOption, setSelectedOption] = useState(null);
-    const options = ['Driver', 'Plumber', 'Cook', 'Watchman', 'Electrician'];
+    const [options, setOptions] = useState([]);
     const [role, setRole] = useState(null);
+
+    const url = process.env.REACT_APP_API_URL;
+    const token = localStorage.getItem('token');
 
     const handleToggle = () => {
         setIsOpen(!isOpen);
@@ -16,6 +20,33 @@ const Documents = () => {
         setIsOpen(false);
     };
 
+    useEffect(()=>{
+        const fetchData = async() =>{
+            try {
+                const response = await axios.get(`${url}/api/services`,{
+                    headers:{
+                        // authorization : `Bearer ${token}`
+                        authorization : `${token}`
+                    }
+                });
+                if(response.data) {
+                    setOptions(response.data);
+                } 
+                // console.log(response);
+            } catch (err) {
+                
+                setOptions([
+                    {sample : 'Driver' }, 
+                    {sample: 'Plumber' } , 
+                    { sample : 'Cook' }, 
+                    { sample : 'Watchman' }, 
+                    { sample : 'Electrician' }
+                ]);
+                console.log(err);
+            }
+        }
+        fetchData();
+    }, [])
     const dropdown = () => {
         return(
             <div className="absolute w-2/12 max-md:w-4/12 mt-14 max-md:mt-12 bg-white border rounded shadow-lg z-40">
@@ -23,9 +54,9 @@ const Documents = () => {
                     <div
                         key={index}
                         className="p-2 max-md:p-1 border-b cursor-pointer hover:bg-gray-100"
-                        onClick={() => handleOptionClick(option)}
+                        onClick={() => handleOptionClick(option.sample)}
                     >
-                        {option}
+                        {option.sample}
                     </div>
                 ))}
             </div>
@@ -42,6 +73,7 @@ const Documents = () => {
                     className='size-7 max-md:size-5 hover:scale-110 ml-5 max-md:ml-2 mr-28 max-md:mr-8'
                     onClick={()=>{
                         localStorage.removeItem('type');
+                        localStorage.removeItem('token');
                         window.location.reload();
                     }}
                 />
