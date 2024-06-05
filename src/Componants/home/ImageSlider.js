@@ -52,10 +52,11 @@ const ImageSlider = () => {
                 </div>
             </div>
 
-            <div className='relative'>
+            <div className='absolute block top-[70%] max-md:top-[50%] opacity-40'>
                 <img src={bg1} alt='ji' className="w-full h-[550px] max-md:h-[400px]" />
                 <div className='absolute inset-28  text-black'> sdfkvnj</div>
             </div>
+
             
         </div>
     );
