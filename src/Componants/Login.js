@@ -50,7 +50,7 @@ import axios from 'axios';t Login = ({loginType, loginShow, userRegShow, VendorR
                 return
             }
         }
-        window.location.reload();
+        // window.location.reload();
     };
 
     return (
