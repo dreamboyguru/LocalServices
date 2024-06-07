@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { RiCloseLine } from "react-icons/ri";
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
@@ -15,6 +15,7 @@ const AddServices = () => {
     const [err, setError] = useState(false);
     const [errMsg, setErrMsg] = useState('');
     const [addServiceBox, setAddServiceBox] = useState(false);
+    const [services, setServices] = useState([]);
     const AddServicesToggle = () => {
         setAddServiceBox(!addServiceBox);
     }
@@ -26,6 +27,19 @@ const AddServices = () => {
         {'img' : 'https://www.hyperlinkcode.com/images/hcImageHyperlink.jpg', 'ServiceName' : 'Gardian'},
         {'img' : 'https://www.hyperlinkcode.com/images/hcImageHyperlink.jpg', 'ServiceName' : 'Electrician'}
     ];
+
+    useEffect(() => {
+        const fetchData = async () => {
+          try {
+            const response = await axios.get(`${url}/api/services`);
+            setServices(response.data);
+          } catch (err) {
+            setError(err);
+          }
+        };
+    
+        fetchData();
+      }, []);
     const showAddAerviceBox = () => {
         return (
             <div className="fixed inset-0 flex items-center justify-center z-50 bg-gray-800 backdrop-blur-sm bg-opacity-75">
@@ -115,14 +129,14 @@ const AddServices = () => {
       </div>
       <div className='relative' >{addServiceBox && showAddAerviceBox()}</div>
       <div className='flex flex-wrap justify-between w-full'>
-            {serviceList && serviceList.map((item, index) => {
+            {services && services.map((item) => {
                 return(
-                    <div className='bg-white p-1 w-48 max-md:w-[49%] max-md:my-1 shadow-md rounded-md h-48' key={index}>
+                    <div className='bg-white p-1 w-48 max-md:w-[49%] max-md:my-1 shadow-md rounded-md h-48' key={item.id}>
                         <div>
-                            <img src={item.img} alt={item.img} className='h-36 w-full'/>
+                            <img src={`${url}/uploads/Services/${item.img}`} alt={`${item.img} Services image`} className='h-36 w-full'/>
                         </div>
                         <div className='flex mt-2 justify-center'>
-                            {item.ServiceName}
+                            {item.name}
                         </div>
                     </div>
                 )
