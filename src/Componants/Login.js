@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { RiCloseLine } from 'react-icons/ri';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import axios from 'axios';t Login = ({loginType, loginShow, userRegShow, VendorRegShow}) => {
+import axios from 'axios';
+const Login = ({loginType, loginShow, userRegShow, VendorRegShow}) => {
     const url = process.env.REACT_APP_API_URL;
     const [errorMessage, setErrorMessage] = useState('');
     const [error, setError] = useState('');
