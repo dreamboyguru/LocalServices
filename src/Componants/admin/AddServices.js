@@ -1,7 +1,19 @@
 import React, { useState } from 'react'
 import { RiCloseLine } from "react-icons/ri";
+import { Formik, Form, Field, ErrorMessage } from 'formik';
+import * as Yup from 'yup';
+import axios from 'axios'
+
+// Define the validation schema using Yup
+const ServiceSchema = Yup.object().shape({
+    serviceName: Yup.string().required('Service Name is required'),
+    serviceFile: Yup.mixed().required('Service File is required'),
+  });
 
 const AddServices = () => {
+    const url = process.env.REACT_APP_API_URL;
+    const [err, setError] = useState(false);
+    const [errMsg, setErrMsg] = useState('');
     const [addServiceBox, setAddServiceBox] = useState(false);
     const AddServicesToggle = () => {
         setAddServiceBox(!addServiceBox);
@@ -17,24 +29,77 @@ const AddServices = () => {
     const showAddAerviceBox = () => {
         return (
             <div className="fixed inset-0 flex items-center justify-center z-50 bg-gray-800 backdrop-blur-sm bg-opacity-75">
-                <div className='relative bg-white h-auto shadow-md p-5 w-96 -mt-28 items-center justify-center rounded'>
-                    <RiCloseLine className='absolute top-1 right-1 text-2xl cursor-pointer hover:scale-150' onClick={AddServicesToggle} />
-                    <form>
-                        <div className='border-b-2 border-gray-700 -mx-4 -mt-2 mb-2 px-4'>
+                <div className="relative bg-white h-auto shadow-md p-5 w-96 -mt-28 items-center justify-center rounded">
+                    <RiCloseLine className="absolute top-1 right-1 text-2xl cursor-pointer hover:scale-150" onClick={AddServicesToggle} />
+                    
+                    <Formik
+                    initialValues={{
+                        serviceName: '',
+                        serviceFile: null,
+                    }}
+                    validationSchema={ServiceSchema}
+                    onSubmit={ async(values, { setSubmitting }) => {
+                        const formData = new FormData();
+                        formData.append('name', values.serviceName);
+                        formData.append('img', values.serviceFile)
+                        try{
+                            const response = await axios.post(`${url}/api/services`, formData, {
+                                Headers : {
+                                    'Content-Type' : 'multipart/form-data',
+                                },
+                            });
+                            console.log('service added successfuly', response.data);
+                        } catch (err) {
+                            // console.log('Error adding servicess : ', err);
+                            setErrMsg(err.response.data.message);
+                            setError(true);
+                        } finally {
+                            setSubmitting(false);
+                        }
+                    }}
+                    >
+                    {({ setFieldValue, isSubmitting }) => (
+                        <Form>
+                        <div className="border-b-2 border-gray-700 -mx-4 -mt-2 mb-2 px-4">
                             <label>Add new Service</label>
                         </div>
+
                         <div className="mb-4">
-                        <label htmlFor="service-name" className="block text-lg text-gray-700 font-bold">Service Name</label>
-                        <input type="text" id="service-name" className="py-2 max-md:py-1 mt-1 block w-full border-2 border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"/>
+                            <label htmlFor="serviceName" className="block text-lg text-gray-700 font-bold">Service Name</label>
+                            <Field 
+                            type="text" 
+                            id="serviceName" 
+                            name="serviceName" 
+                            className="py-2 max-md:py-1 mt-1 block w-full border-2 border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" 
+                            />
+                            {err ? 
+                                <div className='text-sm text-red-600'>{errMsg}</div> :
+                                <ErrorMessage name="serviceName" component="p" className="text-red-600 text-sm" />
+                            }
                         </div>
+
                         <div className="mb-6">
-                        <label htmlFor="service-file" className="block text-lg font-bold text-gray-700">Service File</label>
-                        <input type="file" id="service-file" className="py-2 max-md:py-1 mt-1 block w-full border-2 border-gray-300 rounded-md shadow-sm text-lg"/>
+                            <label htmlFor="serviceFile" className="block text-lg font-bold text-gray-700">Service File</label>
+                            <input
+                            type="file"
+                            id="serviceFile"
+                            name="serviceFile"
+                            className="py-2 max-md:py-1 mt-1 block w-full border-2 border-gray-300 rounded-md shadow-sm text-lg"
+                            onChange={(event) => {
+                                setFieldValue("serviceFile", event.currentTarget.files[0]);
+                            }}
+                            />
+                            <ErrorMessage name="serviceFile" component="p" className="text-red-600 text-sm" />
                         </div>
+
                         <div>
-                        <button type='submit' className='p-1 px-4 bg-gray-500 text-white rounded-md w-full hover:scale-105 hover:bg-gray-600'>Submit</button>
+                            <button type="submit" className="p-1 px-4 bg-gray-500 text-white rounded-md w-full hover:scale-105 hover:bg-gray-600" disabled={isSubmitting}>
+                            Submit
+                            </button>
                         </div>
-                    </form>
+                        </Form>
+                    )}
+                    </Formik>
                 </div>
             </div>
         )

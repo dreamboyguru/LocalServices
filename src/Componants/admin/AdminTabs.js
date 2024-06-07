@@ -111,9 +111,9 @@ const AdminTabs = () => {
                             <Link to='leveslist' className='flex flex-row py-5 items-center justify-center hover:bg-gray-700 text-center'>
                                 <GiThreeLeaves className='text-3xl pl-2'/>
                             </Link> <hr className='border-gray-700' />
-                            <li className='flex flex-row py-5 items-center justify-center hover:bg-gray-700 text-center'>
+                            {/* <li className='flex flex-row py-5 items-center justify-center hover:bg-gray-700 text-center'>
                                 <MdReviews className='text-3xl pl-2'/>
-                            </li> <hr className='border-gray-700' />
+                            </li> <hr className='border-gray-700' /> */}
 
                         </ul>
                     </nav>)}
