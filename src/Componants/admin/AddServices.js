@@ -49,6 +49,7 @@ const AddServices = () => {
                                 },
                             });
                             console.log('service added successfuly', response.data);
+                            AddServicesToggle()
                         } catch (err) {
                             console.log('Error adding servicess : ', err);
                             setErrMsg(err.response.data.message);
