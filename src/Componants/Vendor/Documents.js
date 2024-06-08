@@ -7,9 +7,11 @@ const Documents = () => {
     const [selectedOption, setSelectedOption] = useState(null);
     const [options, setOptions] = useState([]);
     const [role, setRole] = useState(null);
+    const [vendorData, setVendorData] = useState([]);
 
     const url = process.env.REACT_APP_API_URL;
     const token = localStorage.getItem('token');
+    const email = localStorage.getItem('email');
 
     const handleToggle = () => {
         setIsOpen(!isOpen);
@@ -19,6 +21,25 @@ const Documents = () => {
         setSelectedOption(option);
         setIsOpen(false);
     };
+
+    useEffect(() => {
+        const fetchUserData = async () => {
+            try {
+                const response = await axios.get(`${url}/api/vendors/${email}`);
+                setVendorData(response.data);
+                console.log(response.data);
+                if(response.data.services_id !== null) {
+                    setRole(response.data.services_id);
+                }
+            } catch (err) {
+                console.log('Error fetching vendor data: ', err);
+                // setError('Error fetching vendor data');
+            }
+        };
+        if (email) {
+            fetchUserData();
+        }
+    }, [email]);
 
     useEffect(()=>{
         const fetchData = async() =>{
@@ -36,17 +57,18 @@ const Documents = () => {
             } catch (err) {
                 
                 setOptions([
-                    {sample : 'Driver' }, 
-                    {sample: 'Plumber' } , 
-                    { sample : 'Cook' }, 
-                    { sample : 'Watchman' }, 
-                    { sample : 'Electrician' }
+                    {name : 'Cook' }, 
+                    {name: 'Plumber' } , 
+                    { name : 'Driver' }, 
+                    { name : 'Watchman' }, 
+                    { name : 'Electrician' }
                 ]);
                 console.log(err);
             }
         }
         fetchData();
     }, [])
+
     const dropdown = () => {
         return(
             <div className="absolute w-2/12 max-md:w-4/12 mt-14 max-md:mt-12 bg-white border rounded shadow-lg z-40">
@@ -54,16 +76,34 @@ const Documents = () => {
                     <div
                         key={index}
                         className="p-2 max-md:p-1 border-b cursor-pointer hover:bg-gray-100"
-                        onClick={() => handleOptionClick(option.sample)}
+                        onClick={() => handleOptionClick(option.name)}
                     >
-                        {option.sample}
+                        {option.name}
                     </div>
                 ))}
             </div>
         )
     }
-    const sumbitRole = () => {
-        setRole(selectedOption);
+
+    const sumbitRole = async() => {
+        try {
+            const response = await axios.put(`${url}/api/vendor/servicesType`, {
+                email: email,
+                services_type: selectedOption
+            },{
+                headers:{
+                    // authorization : `Bearer ${token}`
+                    authorization : `${token}`
+                }
+            });
+            if (response.status === 200) {
+                setRole(selectedOption);
+                setIsOpen(false);
+            }
+        } catch (error) {
+            console.log('Error updating vendor:', error);
+            // setMessage('Error updating vendor');
+        }
     }
   return (
     <section className='flex w-full h-screen bg-gray-50  justify-center pt-20 pb-72 max-md:pb-96 duration-300 text-sm max-md:text-xs'>
@@ -82,8 +122,8 @@ const Documents = () => {
             <div className='px-10 max-md:px-3 mb-5 max-md:mb-2 border-b-2 pb-2'>
                 <div className='flex flex-row justify-between'>
                     <div className='flex flex-col font-mono'>
-                        <label className={`mb-2 ${role !== null ? 'max-md:mb-0' : 'max-md:mb-2'}`}>Wellcome Jhone Deo</label>
-                        <label className=''>Your Phone no : 9586547854</label>
+                        <label className={`mb-2 ${role !== null ? 'max-md:mb-0' : 'max-md:mb-2'}`}>Wellcome {vendorData.firstName}</label>
+                        <label className=''>Phone no : {vendorData.phone}</label>
                     </div>
                     <div className='flex flex-col font-mono w-5/12 text-center'>
                         
@@ -92,7 +132,7 @@ const Documents = () => {
                                 <label className='mb-1'>Applying for</label>
                                 <div
                                     className="flex justify-between items-center w-full py-2 max-md:py-1 bg-white border rounded cursor-pointer"
-                                    onClick={handleToggle}
+                                    onClick={()=>handleToggle()}
                                 >
                                     <span>{selectedOption ? selectedOption : "Select an option"}</span>
                                     <span className={`transform transition-transform ${isOpen ? 'rotate-180' : ''} duration-300`}>▼</span>
@@ -100,7 +140,7 @@ const Documents = () => {
                                 {isOpen && dropdown() }
                                 <button 
                                     className='bg-gray-400 hover:bg-gray-500 rounded-b-md text-black font-semibold p-1 mt-1'
-                                    onClick={()=>sumbitRole()}
+                                    onClick={sumbitRole}
                                 >Submit</button>
                             </>
                         }

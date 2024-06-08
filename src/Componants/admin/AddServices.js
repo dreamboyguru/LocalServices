@@ -19,14 +19,14 @@ const AddServices = () => {
     const AddServicesToggle = () => {
         setAddServiceBox(!addServiceBox);
     }
-    const serviceList = [
-        {'img' : 'https://www.html.am/images/html-codes/links/boracay-resort-1000x750.jpg', 'ServiceName' : 'Driver'},
-        {'img' : 'https://www.hyperlinkcode.com/images/hcImageHyperlink.jpg', 'ServiceName' : 'Plumber'},
-        {'img' : 'https://www.hyperlinkcode.com/images/hcImageHyperlink.jpg', 'ServiceName' : 'Cook'},
-        {'img' : 'https://www.html.am/images/html-codes/links/boracay-resort-1000x750.jpg', 'ServiceName' : 'Nurse'},
-        {'img' : 'https://www.hyperlinkcode.com/images/hcImageHyperlink.jpg', 'ServiceName' : 'Gardian'},
-        {'img' : 'https://www.hyperlinkcode.com/images/hcImageHyperlink.jpg', 'ServiceName' : 'Electrician'}
-    ];
+    // setServices([
+    //     {'img' : 'https://www.html.am/images/html-codes/links/boracay-resort-1000x750.jpg', 'name' : 'Driver'},
+    //     {'img' : 'https://www.hyperlinkcode.com/images/hcImageHyperlink.jpg', 'name' : 'Plumber'},
+    //     {'img' : 'https://www.hyperlinkcode.com/images/hcImageHyperlink.jpg', 'name' : 'Cook'},
+    //     {'img' : 'https://www.html.am/images/html-codes/links/boracay-resort-1000x750.jpg', 'name' : 'Nurse'},
+    //     {'img' : 'https://www.hyperlinkcode.com/images/hcImageHyperlink.jpg', 'name' : 'Gardian'},
+    //     {'img' : 'https://www.hyperlinkcode.com/images/hcImageHyperlink.jpg', 'name' : 'Electrician'}
+    // ]);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -39,7 +39,7 @@ const AddServices = () => {
         };
     
         fetchData();
-      }, []);
+      }, [services]);
     const showAddAerviceBox = () => {
         return (
             <div className="fixed inset-0 flex items-center justify-center z-50 bg-gray-800 backdrop-blur-sm bg-opacity-75">

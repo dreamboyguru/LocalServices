@@ -24,7 +24,8 @@ const Login = ({loginType, loginShow, userRegShow, VendorRegShow}) => {
             if (response.data.token) {
                 localStorage.setItem('token', response.data.token);
                 localStorage.setItem('type', 'Component2');
-                window.location.reload();
+                localStorage.setItem('email', email);
+                // window.location.reload();
             } else {
                 setErrorMessage('Invalid login credentials');
             }
