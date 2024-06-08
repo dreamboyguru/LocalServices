@@ -25,7 +25,7 @@ const Login = ({loginType, loginShow, userRegShow, VendorRegShow}) => {
                 localStorage.setItem('token', response.data.token);
                 localStorage.setItem('type', 'Component2');
                 localStorage.setItem('email', email);
-                // window.location.reload();
+                window.location.reload();
             } else {
                 setErrorMessage('Invalid login credentials');
             }
@@ -41,12 +41,14 @@ const Login = ({loginType, loginShow, userRegShow, VendorRegShow}) => {
         // const {email, password} = values;
         if(loginType === 'User') {
             localStorage.setItem('type', 'Component1');
+            window.location.reload();
         } else if(loginType === 'Vendor') {
             loginVendor(values);
         } else if(loginType === 'Admin') {
             if(values.email === 'admin' && values.password === 'admin') {
                 localStorage.setItem('adminAuth', true);
                 localStorage.setItem('type', 'Component3');
+                window.location.reload();
             } else{
                 setErrorMessage('User Name and Password Wrong')
                 return
