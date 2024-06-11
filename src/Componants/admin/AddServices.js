@@ -33,13 +33,15 @@ const AddServices = () => {
           try {
             const response = await axios.get(`${url}/api/services`);
             setServices(response.data);
+            console.log(response.data);
           } catch (err) {
             setError(err);
+            console.log('err');
           }
         };
     
         fetchData();
-      }, [services]);
+      }, [addServiceBox]);
     const showAddAerviceBox = () => {
         return (
             <div className="fixed inset-0 flex items-center justify-center z-50 bg-gray-800 backdrop-blur-sm bg-opacity-75">
@@ -131,7 +133,7 @@ const AddServices = () => {
       <div className='flex flex-wrap justify-between w-full'>
             {services && services.map((item) => {
                 return(
-                    <div className='bg-white p-1 w-48 max-md:w-[49%] max-md:my-1 shadow-md rounded-md h-48' key={item.id}>
+                    <div className='bg-white p-1 m-2 w-48 max-md:w-[49%] max-md:my-1 shadow-md rounded-md h-48' key={item.id}>
                         <div>
                             <img src={`${url}/uploads/Services/${item.img}`} alt={`${item.img} Services image`} className='h-36 w-full'/>
                         </div>
