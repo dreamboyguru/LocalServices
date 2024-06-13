@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { CgProfile } from 'react-icons/cg';
 import { Link, Route, Routes } from 'react-router-dom';
 import { TfiDashboard } from "react-icons/tfi";
@@ -14,7 +14,8 @@ import Documents from './Documents';
 const Tabs = () => {
     const [loginBox, setLoginBox] = useState(false);
     const [menu, setMenu] = useState(false);
-    const [docVerified, setDocVerified] = useState(false)
+    const docVerified = localStorage.getItem('verify');
+    console.log(docVerified);
 
     const loginToggle = (e) => {
         e.stopPropagation(); // Prevent triggering the header's onClick
@@ -40,7 +41,7 @@ const Tabs = () => {
     }
 
     return (
-        docVerified ? <>
+        docVerified === '1' ? <>
             <header onClick={loginToggleShow} >
                 
                 <div className='fixed w-full bg-gray-800 p-4 flex justify-between items-center shadow-md px-6 md:px-14 text-white'>

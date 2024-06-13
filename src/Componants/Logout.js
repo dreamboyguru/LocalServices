@@ -3,6 +3,9 @@ import { useNavigate } from 'react-router-dom';
 
 const Logout = () => {
     localStorage.removeItem('type');
+    localStorage.removeItem('verify');
+    localStorage.removeItem('email');
+    localStorage.removeItem('token');
     const navigate = useNavigate();
     useEffect(()=>{
         navigate('/')

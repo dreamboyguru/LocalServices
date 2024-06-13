@@ -25,6 +25,10 @@ const Login = ({loginType, loginShow, userRegShow, VendorRegShow}) => {
                 localStorage.setItem('token', response.data.token);
                 localStorage.setItem('type', 'Component2');
                 localStorage.setItem('email', email);
+                if(response.data.status === 1) {
+                    localStorage.setItem('verify', response.data.status);
+                    console.log(response.data.status);
+                }
                 window.location.reload();
             } else {
                 setErrorMessage('Invalid login credentials');
