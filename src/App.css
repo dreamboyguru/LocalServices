@@ -9,6 +9,10 @@
     padding-left: 220px;
 }
 
+.textset {
+    font-size: 5px;
+}
+
 /* Responsive adjustments for different screen sizes */
 @media (max-width: 768px) {
     .container {

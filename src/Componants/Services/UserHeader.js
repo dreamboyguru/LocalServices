@@ -30,15 +30,25 @@ const UserHeader = () => {
 
     return (
         <>
-            <header className='fixed w-full bg-gray-600 p-4 flex flex-row justify-between items-center shadow-md px-14'
+            <header className='fixed w-full bg-gray-600 p-4 flex flex-row justify-between items-center shadow-md px-14 max-md:px-2 z-30'
                 onClick={loginToggleShow}
             >
                 <h1>Logo</h1>
-                <nav>
+                <nav className='max-md:hidden'>
                     <ul className='flex flex-row space-x-4'>
                         <li><a href='#about'>About Us</a></li>
                         <li><a href='#contact'>Contact Us</a></li>
                         <li onClick={loginToggle}>
+                            <CgProfile size={32} className='ml-2 hover:scale-110 duration-300'/>
+                            {loginBox && dropdown()}
+                        </li>
+                    </ul>
+                </nav>
+                <nav className='md:hidden'>
+                    <ul className='flex flex-row space-x-4'>
+                        {/* <li><a href='#about'>About Us</a></li>
+                        <li><a href='#contact'>Contact Us</a></li> */}
+                        <li onClick={loginToggle} className='absolute top-3 right-2'>
                             <CgProfile size={32} className='ml-2 hover:scale-110 duration-300'/>
                             {loginBox && dropdown()}
                         </li>
