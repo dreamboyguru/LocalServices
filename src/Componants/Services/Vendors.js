@@ -37,7 +37,7 @@ const Vendors = () => {
     
   return (
     <div className="relative mx-auto p-4 max-md:p-1 max-md:pt-36 pt-32 bg-gray-100 min-h-screen">
-        <div className='absolute top-3 left-1/2 -translate-x-1/2 z-40 text-gray-50 text-2xl font-bold'>
+        <div className='fixed top-3 left-1/2 -translate-x-1/2 z-40 text-gray-50 text-2xl font-bold'>
             <h1>{name}'s Lists</h1>
         </div>
         <div className="flex flex-wrap justify-center gap-6">
