@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Formik, Form, Field, ErrorMessage, isEmptyArray } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
 
@@ -32,9 +32,9 @@ const Slots = () => {
     },[loading])
 
     const initialValues = {
-        oneDay: ratesData.one_day || '',
-        oneWeek: ratesData.one_week || '',
-        oneMonth: ratesData.one_month || '',
+        oneDay: '',
+        oneWeek:'',
+        oneMonth: '',
     };
 
     const handleSubmit = async (values, { setSubmitting }) => {
@@ -59,7 +59,7 @@ const Slots = () => {
                 >
                     {({ isSubmitting }) => (
                         <Form>
-                            {(ratesData === null) || (ratesData?.one_day === 0) || (ratesData?.one_week === 0) || (ratesData?.one_month === 0)  ? 
+                            {(isEmptyArray(ratesData)) || (ratesData === null) || (ratesData.one_day === 0) || (ratesData?.one_week === 0) || (ratesData?.one_month === 0)  ? 
                                 <>
                                     <table className="min-w-full border-collapse border border-gray-300 shadow-lg text-lg">
                                         <thead>
