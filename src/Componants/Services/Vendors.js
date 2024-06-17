@@ -2,7 +2,8 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { CgProfile } from 'react-icons/cg';
-import { useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
+import { MdOutlineKeyboardBackspace } from "react-icons/md";
 
 const Vendors = () => {
     const [data, setData] = useState([]);
@@ -36,9 +37,12 @@ const Vendors = () => {
     }, [name])
     
   return (
-    <div className="relative mx-auto p-4 max-md:p-1 max-md:pt-36 pt-32 bg-gray-100 min-h-screen">
-        <div className='fixed top-3 left-1/2 -translate-x-1/2 z-40 text-gray-50 text-2xl font-bold'>
-            <h1>{name}'s Lists</h1>
+    <div className="relative mx-auto p-4 max-md:p-1 max-md:pt-40 pt-32 bg-gray-100 min-h-screen">
+        <div className='fixed top-5 left-16 max-md:left-5  z-40 text-gray-50 text-3xl font-bold'>
+            <Link to='/'><MdOutlineKeyboardBackspace /></Link>
+        </div>
+        <div className='fixed top-3 max-md:top-16 left-1/2 -translate-x-1/2 z-40 text-gray-50'>
+            <h1 className='text-2xl max-md:text-lg font-bold max-md:text-black'>{name}'s Lists</h1>
         </div>
         <div className="flex flex-wrap justify-center gap-6">
             {data && data.map((item, index) => (

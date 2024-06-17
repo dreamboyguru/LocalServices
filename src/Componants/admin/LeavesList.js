@@ -15,10 +15,10 @@ const LeavesList = () => {
             catch (err) {
                 console.log(err);
                 setLeave([
-                    {name : 'Jhon deo', date : '01-06-2024', status : 1},
-                    {name : 'Jhon deo', date : '01-06-2024', status : 2}, 
-                    {name : 'Jhon deo', date : '01-06-2024', status : 0},
-                    {name : 'Jhon deo', date : '01-06-2024', status : 0}
+                    {firstName : 'Jhon deo', date : '01-06-2024', status : 1},
+                    {firstName : 'Jhon deo', date : '01-06-2024', status : 2}, 
+                    {firstName : 'Jhon deo', date : '01-06-2024', status : 0},
+                    {firstName : 'Jhon deo', date : '01-06-2024', status : 0}
                 ])
             }
         }

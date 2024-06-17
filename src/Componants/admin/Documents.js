@@ -14,7 +14,8 @@ const Documents = () => {
     const documentToggle = (img) => {
         const arr = [];
         arr.push(img.adhar, img.pan, img.other);
-        setImgData(arr);
+        // setImgData(arr);
+        setImgData(img.img);
         setDocumentBox(true);
     }
     const decID = (id) => {
@@ -40,6 +41,14 @@ const Documents = () => {
                 setDocData(response.data)
             } catch (err) {
                 console.log(err);
+                setDocData([
+{ firstName: 'John Doe', address : '#123, 1cross, house, xyz, Begalore, 591222', phone: '8596547512', email : 'jhon@gmail.com', Reviews : '****', 'img' : 'https://www.hyperlinkcode.com/images/hcImageHyperlink.jpg' },
+{ firstName: 'Jane Smith', address : '#123, 1cross, house, xyz, Begalore, 591222', phone: '8596547512', email : 'jhon@gmail.com', Reviews : '****', 'img' : 'https://www.hyperlinkcode.com/images/hcImageHyperlink.jpg'},
+{ firstName: 'Sam Johnson', address : '#123, 1cross, house, xyz, Begalore, 591222', phone: '8596547512', email : 'jhon@gmail.com', Reviews : '****', 'img' : 'https://www.hyperlinkcode.com/images/hcImageHyperlink.jpg' },
+{ firstName: 'John Doe', address : '#123, 1cross, house, xyz, Begalore, 591222', phone: '8596547512', email : 'jhon@gmail.com', Reviews : '****', 'img' : 'https://www.hyperlinkcode.com/images/hcImageHyperlink.jpg' },
+{ firstName: 'Jane Smith', address : '#123, 1cross, house, xyz, Begalore, 591222', phone: '8596547512', email : 'jhon@gmail.com', Reviews : '****', 'img' : 'https://www.hyperlinkcode.com/images/hcImageHyperlink.jpg'},
+{ firstName: 'Sam Johnson', address : '#123, 1cross, house, xyz, Begalore, 591222', phone: '8596547512', email : 'jhon@gmail.com', Reviews : '****', 'img' : 'https://www.hyperlinkcode.com/images/hcImageHyperlink.jpg' },
+                ])
             }
         }
         fetchData()
@@ -59,7 +68,8 @@ const Documents = () => {
                     <RiCloseLine className='absolute -top-1 -right-1 text-5xl cursor-pointer hover:scale-110 text-red-800' onClick={()=>setDocumentBox(false)} />
                     <div>
                         <MdKeyboardDoubleArrowLeft className='absolute top-[40%] left-0 text-6xl cursor-pointer hover:scale-110 text-gray-500' onClick={()=>decID(id)} />
-                        <img src={`${url}/uploads/documents/${imgData[id]}`} className='w-full h-full' />
+                        {/* <img src={`${url}/uploads/documents/${imgData[id]}`} className='w-full h-full' /> */}
+                        <img src={`${imgData}`} className='w-full h-full' />
                         <MdKeyboardDoubleArrowRight className='absolute top-[40%] right-0 text-6xl cursor-pointer hover:scale-110 text-gray-500' onClick={()=>incID(id)} />
                     </div>
                 </div>
@@ -67,14 +77,6 @@ const Documents = () => {
         )
     }
     
-    const data = [
-        { name: 'John Doe', address : '#123, 1cross, house, xyz, Begalore, 591222', contact: '8596547512', Reviews : '****', 'img' : 'https://www.hyperlinkcode.com/images/hcImageHyperlink.jpg' },
-        { name: 'Jane Smith', address : '#123, 1cross, house, xyz, Begalore, 591222', contact: '8596547512',  Contact: 34, Reviews : '****', 'img' : 'https://www.hyperlinkcode.com/images/hcImageHyperlink.jpg'},
-        { name: 'Sam Johnson', address : '#123, 1cross, house, xyz, Begalore, 591222', contact: '8596547512',  Contact: 23, Reviews : '****', 'img' : 'https://www.hyperlinkcode.com/images/hcImageHyperlink.jpg' },
-        { name: 'John Doe', address : '#123, 1cross, house, xyz, Begalore, 591222', contact: '8596547512',  Contact: 28, Reviews : '****', 'img' : 'https://www.hyperlinkcode.com/images/hcImageHyperlink.jpg' },
-        { name: 'Jane Smith', address : '#123, 1cross, house, xyz, Begalore, 591222', contact: '8596547512',  Contact: 34, Reviews : '****', 'img' : 'https://www.hyperlinkcode.com/images/hcImageHyperlink.jpg'},
-        { name: 'Sam Johnson', address : '#123, 1cross, house, xyz, Begalore, 591222', contact: '8596547512',  Contact: 23, Reviews : '****', 'img' : 'https://www.hyperlinkcode.com/images/hcImageHyperlink.jpg' },
-      ];
   return (
     <div className="mx-32 max-md:mx-1">
         <div className="rounded-md">
@@ -94,9 +96,16 @@ const Documents = () => {
                         <tr className={`odd:bg-white even:bg-gray-50 ${docData.length-1 === index ? '' : 'border-b-4'} border-gray-300`} key={item.id}>
                             <td className="px-2 max-md:px-1 py-4 max-md:py-1 text-2xl max-md:text-lg flex items-start">{index+1}</td>
                             <td className="px-10 max-md:px-1 py-4 max-md:py-1">
-                                {/* <CgProfile className='w-full text-red-500 text-center' /> */}
-                                <img src={`${url}/uploads/vendors/photo/${item.photo}`} className='flex justify-center item-center size-36 max-md:h-20 max-md:size-28 rounded-full border-2 border-black'/>
-                                {item.firstName}
+                                {item?.img ? 
+                                    <>
+                                        <img src={`${item.img}`} className='flex justify-center item-center size-36 max-md:h-20 max-md:size-28 rounded-full border-2 border-black'/>
+                                        <span className='-ml-10'>{item.firstName}</span>
+                                    </> :
+                                    <>
+                                        <img src={`${url}/uploads/vendors/photo/${item.photo}`} className='flex justify-center item-center size-36 max-md:h-20 max-md:size-28 rounded-full border-2 border-black'/>
+                                        <span className='-ml-10'>{item.firstName}</span>
+                                    </>
+                                }
                             </td>
                             <td className="px-4 max-md:px-1 py-4 max-md:py-1 text-left">
                                 <div>Address : {item.address}</div>
@@ -105,11 +114,22 @@ const Documents = () => {
                             </td>
                             
                             <td className="px-4 max-md:px-1 py-4 max-md:py-1 max-md:hidden">
-                                <img 
-                                    src={`${url}/uploads/documents/${item.adhar}`} 
-                                    className='w-60 h-36'
-                                    onClick={()=>documentToggle(item)}
-                                />
+                                {item?.img ? 
+                                    <>
+                                        <img 
+                                            src={`${item.img}`} 
+                                            className='w-60 h-36'
+                                            onClick={()=>documentToggle(item)}
+                                        />
+                                    </> :
+                                    <>
+                                        <img 
+                                            src={`${url}/uploads/documents/${item.adhar}`} 
+                                            className='w-60 h-36'
+                                            onClick={()=>documentToggle(item)}
+                                        />
+                                    </>
+                                }
                             </td>
                             {item.status === 1 ? 
                                 <td className="px-4 max-md:px-1 py-4 max-md:py-1 font-semibold text-green-600 max-md:hidden">Verified</td> :

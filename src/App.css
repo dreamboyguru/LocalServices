@@ -13,6 +13,30 @@
     font-size: 5px;
 }
 
+
+
+.transparent-background {
+    position: relative;
+    width: 80px;
+    padding: 0px;
+    border-radius: 10px;
+    color: black; /* Text color */
+    z-index: 1; /* Ensures the content is on top */
+}
+
+.transparent-background::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Black with 50% opacity */
+    border-radius: 10px;
+    z-index: -1; /* Places the background behind the content */
+}
+
+
 /* Responsive adjustments for different screen sizes */
 @media (max-width: 768px) {
     .container {

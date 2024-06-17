@@ -19,15 +19,7 @@ const AddServices = () => {
     const AddServicesToggle = () => {
         setAddServiceBox(!addServiceBox);
     }
-    // setServices([
-    //     {'img' : 'https://www.html.am/images/html-codes/links/boracay-resort-1000x750.jpg', 'name' : 'Driver'},
-    //     {'img' : 'https://www.hyperlinkcode.com/images/hcImageHyperlink.jpg', 'name' : 'Plumber'},
-    //     {'img' : 'https://www.hyperlinkcode.com/images/hcImageHyperlink.jpg', 'name' : 'Cook'},
-    //     {'img' : 'https://www.html.am/images/html-codes/links/boracay-resort-1000x750.jpg', 'name' : 'Nurse'},
-    //     {'img' : 'https://www.hyperlinkcode.com/images/hcImageHyperlink.jpg', 'name' : 'Gardian'},
-    //     {'img' : 'https://www.hyperlinkcode.com/images/hcImageHyperlink.jpg', 'name' : 'Electrician'}
-    // ]);
-
+    
     useEffect(() => {
         const fetchData = async () => {
           try {
@@ -37,6 +29,14 @@ const AddServices = () => {
           } catch (err) {
             setError(err);
             console.log('err');
+            setServices([
+                {'img' : 'https://www.hyperlinkcode.com/images/hcImageHyperlink.jpg', 'name' : 'Driver'},
+                {'img' : 'https://www.hyperlinkcode.com/images/hcImageHyperlink.jpg', 'name' : 'Plumber'},
+                {'img' : 'https://www.hyperlinkcode.com/images/hcImageHyperlink.jpg', 'name' : 'Cook'},
+                {'img' : 'https://www.hyperlinkcode.com/images/hcImageHyperlink.jpg', 'name' : 'Nurse'},
+                {'img' : 'https://www.hyperlinkcode.com/images/hcImageHyperlink.jpg', 'name' : 'Gardian'},
+                {'img' : 'https://www.hyperlinkcode.com/images/hcImageHyperlink.jpg', 'name' : 'Electrician'}
+            ]);
           }
         };
     
@@ -135,7 +135,8 @@ const AddServices = () => {
                 return(
                     <div className='bg-white p-1 m-2 w-48 max-md:w-[49%] max-md:my-1 shadow-md rounded-md h-48' key={item.id}>
                         <div>
-                            <img src={`${url}/uploads/Services/${item.img}`} alt={`${item.img} Services image`} className='h-36 w-full'/>
+                            {/* <img src={`${url}/uploads/Services/${item.img}`} alt={`${item.img} Services image`} className='h-36 w-full'/> */}
+                            <img src={`${item.img}`} alt={`${item.img} Services image`} className='h-36 w-full'/>
                         </div>
                         <div className='flex mt-2 justify-center'>
                             {item.name}

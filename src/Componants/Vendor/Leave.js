@@ -62,14 +62,15 @@ const Leave = () => {
                     onSubmit={handleSubmit}
                 >
                     {({ isSubmitting }) => (
-                        <Form className="flex items-center justify-center w-full space-x-2">
-                            <div className="flex justify-center w-full">
+                        <Form className="relative flex items-center justify-center w-full">
+                            <div className='absolute px-2 -top-2 left-5 max-md:left-2 bg-white text-sm max-md:text-xs'><ErrorMessage name="date" component="div" className="text-red-500" /></div>
+                            <div className="flex flex-col justify-center w-full">
                                 <Field
                                     type="date"
                                     name="date"
-                                    className="w-full text-2xl max-md:text-sm text-black text-center border border-gray-300 rounded-l-lg p-2 max-md:p-1 focus:outline-none focus:ring-1 focus:ring-gray-100"
+                                    className="w-full text-2xl py-2.5 max-md:text-sm text-black text-center border border-gray-300 rounded-l-lg p-2 max-md:p-1.5 focus:outline-none focus:ring-1 focus:ring-gray-100"
                                 />
-                                <ErrorMessage name="date" component="div" className="text-red-500 text-sm mt-1" />
+                                
                             </div>
                             <div className='w-1/3'>
                                 <button
