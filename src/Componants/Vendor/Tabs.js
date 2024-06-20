@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { CgProfile } from 'react-icons/cg';
 import { Link, Route, Routes } from 'react-router-dom';
-import { TfiDashboard } from "react-icons/tfi";
+// import { TfiDashboard } from "react-icons/tfi";
 import { GiThreeLeaves, GiSloth  } from "react-icons/gi";
-import { MdReviews } from "react-icons/md";
+// import { MdReviews } from "react-icons/md";
 import { RiMenuFold2Fill, RiMenuFoldFill } from "react-icons/ri";
 import Dashboard from './Dashboard';
-import Test from './Test';
+// import Test from './Test';
 import Slots from './Slots';
 import Leave from './Leave';
 import Documents from './Documents';
