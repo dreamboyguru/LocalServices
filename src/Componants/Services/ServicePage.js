@@ -15,9 +15,24 @@ function ServicePage() {
       .catch(err => {
         console.log(err);
         setServices([
-          {name : 'Driver', sample : 'Driver', img: 'https://img.freepik.com/vrije-vector/wilde-natuur-verticale-poster_23-2148724602.jpg?size=338&ext=jpg&ga=GA1.1.1546980028.1710633600&semt=ais'}, 
-          {name : 'Driver', sample : 'Plumber', img: 'https://img.freepik.com/vrije-vector/wilde-natuur-verticale-poster_23-2148724602.jpg?size=338&ext=jpg&ga=GA1.1.1546980028.1710633600&semt=ais'},
-          {name : 'Driver', sample : 'Plumber', img: 'https://img.freepik.com/vrije-vector/wilde-natuur-verticale-poster_23-2148724602.jpg?size=338&ext=jpg&ga=GA1.1.1546980028.1710633600&semt=ais'}
+          {name : 'Driver', sample : 'Driver', img: 'https://cdn.kinocheck.com/i/113c7rh2vw.jpg'}, 
+          {name : 'Driver', sample : 'Plumber', img: 'https://cdn.kinocheck.com/i/113c7rh2vw.jpg'},
+          {name : 'Driver', sample : 'Plumber', img: 'https://cdn.kinocheck.com/i/113c7rh2vw.jpg'},
+          {name : 'Driver', sample : 'Driver', img: 'https://cdn.kinocheck.com/i/113c7rh2vw.jpg'}, 
+          {name : 'Driver', sample : 'Plumber', img: 'https://cdn.kinocheck.com/i/113c7rh2vw.jpg'},
+          {name : 'Driver', sample : 'Plumber', img: 'https://cdn.kinocheck.com/i/113c7rh2vw.jpg'},
+          {name : 'Driver', sample : 'Driver', img: 'https://cdn.kinocheck.com/i/113c7rh2vw.jpg'}, 
+          {name : 'Driver', sample : 'Plumber', img: 'https://cdn.kinocheck.com/i/113c7rh2vw.jpg'},
+          {name : 'Driver', sample : 'Plumber', img: 'https://cdn.kinocheck.com/i/113c7rh2vw.jpg'},
+          {name : 'Driver', sample : 'Driver', img: 'https://cdn.kinocheck.com/i/113c7rh2vw.jpg'}, 
+          {name : 'Driver', sample : 'Plumber', img: 'https://cdn.kinocheck.com/i/113c7rh2vw.jpg'},
+          {name : 'Driver', sample : 'Plumber', img: 'https://cdn.kinocheck.com/i/113c7rh2vw.jpg'},
+          {name : 'Driver', sample : 'Driver', img: 'https://cdn.kinocheck.com/i/113c7rh2vw.jpg'}, 
+          {name : 'Driver', sample : 'Plumber', img: 'https://cdn.kinocheck.com/i/113c7rh2vw.jpg'},
+          {name : 'Driver', sample : 'Plumber', img: 'https://cdn.kinocheck.com/i/113c7rh2vw.jpg'},
+          {name : 'Driver', sample : 'Driver', img: 'https://cdn.kinocheck.com/i/113c7rh2vw.jpg'}, 
+          {name : 'Driver', sample : 'Plumber', img: 'https://cdn.kinocheck.com/i/113c7rh2vw.jpg'},
+          {name : 'Driver', sample : 'Plumber', img: 'https://cdn.kinocheck.com/i/113c7rh2vw.jpg'}
         ]);
       });
     
