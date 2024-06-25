@@ -4,6 +4,7 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
 const Login = ({loginType, loginShow, userRegShow, VendorRegShow}) => {
+    localStorage.setItem('blur', true);
     const url = process.env.REACT_APP_API_URL;
     const [errorMessage, setErrorMessage] = useState('');
     const [error, setError] = useState('');

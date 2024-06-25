@@ -9,6 +9,9 @@ import Register from './Register';
 import ImageSlider from './home/ImageSlider';
 import Footer from './Footer';
 
+import bg from '../Images/footer-bg.jpg'
+import headerbg from '../Images/header-bg.jpg'
+
 const Header = () => {
     const [loginBox, setLoginBox] = useState(false);
     const [login, setLogin] = useState(false);
@@ -50,10 +53,12 @@ const Header = () => {
 
     const RegistrationShow = () => {
         setRegister(false)
+        localStorage.setItem('blur', false)
     }
 
     const loginShow = () => {
         setLogin(false);
+        localStorage.setItem('blur', false)
     }
 
     const userLoginShow = () => {
@@ -81,24 +86,24 @@ const Header = () => {
 
     const dropdown = () => {
         return (
-            <ul className='absolute w-40 bg-gray-700 top-16 right-10 rounded-b-md text-center transition-transform duration-500 ease-out transform origin-top bg-opacity-80'>
+            <ul className='absolute w-40 top-16 right-10 max-md:right-1 rounded-b-md text-center transition-transform duration-500 ease-out transform origin-top bg-opacity-80' style={{ backgroundImage: `url(${bg})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
                 <li onClick={()=>{
                         setloginType('User');
                         setLogin(true);
                     }} 
-                    className='py-2 hover:bg-gray-600 border-t border-gray-800'>
+                    className='py-2 hover:bg-gray-600 border-t border-gray-500'>
                 User</li>
                 <li onClick={()=>{
                         setloginType('Vendor');
                         setLogin(true);
                     }} 
-                    className='py-2 hover:bg-gray-600 border-t border-gray-800'>
+                    className='py-2 hover:bg-gray-600 border-t border-gray-500'>
                 Vendor</li>
                 <li onClick={()=>{
                         setloginType('Admin');
                         setLogin(true)
                     }} 
-                    className='py-2 hover:bg-gray-600 border-t border-gray-800'>
+                    className='py-2 hover:bg-gray-600 border-t border-gray-500'>
                 Admin</li>
             </ul>
         );
@@ -123,9 +128,10 @@ const Header = () => {
             {selectedComponent === null ? 
                 <div>
                     <header className='fixed w-full bg-gray-700 p-4 flex flex-row justify-between items-center shadow-md px-14 z-10 bg-opacity-80 max-md:hidden'
+                        style={{ backgroundImage: `url(${headerbg})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
                         onClick={loginToggleShow}
                     >{type !== null ? handleClick(type) : null}
-                        <h1 className='text-2xl'>Logo</h1>
+                        <h1 className='text-2xl'>LSP</h1>
                         <nav>
                             <ul className='flex flex-row space-x-4'>
                                 <li><a href='#about'>About Us</a></li>
@@ -138,6 +144,7 @@ const Header = () => {
                         </nav>
                     </header>
                     <header className='fixed w-full bg-gray-700 p-4 flex flex-row justify-between items-center shadow-md z-10 bg-opacity-80 md:hidden text-sm'
+                        style={{ backgroundImage: `url(${headerbg})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
                         onClick={loginToggleShow}
                     >{type !== null ? handleClick(type) : null}
                         <h1 className='text-xl'>Logo</h1>
