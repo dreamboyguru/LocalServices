@@ -4,9 +4,14 @@ import bg1 from '../../Images/bg1.jpg';
 import listCheck from '../../Images/list-check.png';
 
 const ImageSlider = () => {
-    const blur = localStorage.getItem('blur');    
+    let blur = localStorage.getItem('blur')
+    useEffect(()=> {
+        localStorage.removeItem('blur'); 
+        blur = 'false'
+    }, [])
+    // setBlur(localStorage.getItem('blur')); 
     return (
-        <div className={`w-full z-20 ${blur === 'true' ? 'blur-sm' : 'blur-none'}`}>
+        <div className={`w-full z-20 ${blur === 'true' ? 'blur-sm' : ''}`}>
             <div className='relative'>
                 <img src={img} alt='ji' className="w-full h-[657px] max-md:h-[400px]" />
                 <div className='absolute inset-28 max-md:inset-0 text-black w-1/3 max-md:w-full max-md:mt-20'>
@@ -69,10 +74,10 @@ const ImageSlider = () => {
                 </div>
             </div>
         
-            <div className='absolute block top-[70%] max-md:top-[50%] opacity-40 -mb-20 md:hidden'>
+            {/* <div className='absolute block top-[70%] max-md:top-[95%] opacity-40 -mb-20 md:hidden'>
                 <img src={bg1} alt='ji' className="w-full h-[550px] max-md:h-[300px]" />
                 <div className='absolute inset-28  text-black'></div>
-            </div>       
+            </div>        */}
 
             
         </div>

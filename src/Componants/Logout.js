@@ -6,6 +6,7 @@ const Logout = () => {
     localStorage.removeItem('verify');
     localStorage.removeItem('email');
     localStorage.removeItem('token');
+    localStorage.removeItem('blur')
     const navigate = useNavigate();
     useEffect(()=>{
         navigate('/')
