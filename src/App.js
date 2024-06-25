@@ -4,6 +4,7 @@ import Header from './Componants/Header';
 import ServicePage from './Componants/Services/ServicePage';
 import Vendors from './Componants/Services/Vendors'
 import Logout from './Componants/Logout';
+import Footer from './Componants/Footer';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
               <Route path='logout' element={<Logout />} />
               {/* <Route path='test' element={<Test />} /> */}
             </Routes>
+            <Footer />
         </div>
   );
 }

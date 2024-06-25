@@ -7,6 +7,7 @@ import AdminTabs from './admin/AdminTabs';
 import Login from './Login';
 import Register from './Register';
 import ImageSlider from './home/ImageSlider';
+import Footer from './Footer';
 
 const Header = () => {
     const [loginBox, setLoginBox] = useState(false);
@@ -153,6 +154,7 @@ const Header = () => {
                     </header>
                     <body>
                         <ImageSlider />
+                        
                     </body>
                 </div> :
                 selectedComponent
