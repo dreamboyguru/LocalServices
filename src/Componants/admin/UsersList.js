@@ -2,10 +2,10 @@ import React from 'react'
 
 const UsersList = () => {
     const leave = [
-        {name : 'Jhon don', address : '#123, 1cross, house, xyz, Begalore, 591222', contact: '8596547512', status: '0'},
-        {name : 'Jhon don2', address : '#123, 1cross, house, xyz, Begalore, 591222', contact: '8596547512', status: '1'}, 
-        {name : 'Jhon don3', address : '#123, 1cross, house, xyz, Begalore, 591222', contact: '8596547512', status: '0'},
-        {name : 'Jhon don4', address : '#123, 1cross, house, xyz, Begalore, 591222', contact: '8596547512', status: '0'}
+        {name : 'Jhon don', address : '#123, 1cross, house, xyz, Begalore, 591222', contact: '7353249095', status: '0'},
+        {name : 'Jhon don2', address : '#123, 1cross, house, xyz, Begalore, 591222', contact: '7353249095', status: '1'}, 
+        {name : 'Jhon don3', address : '#123, 1cross, house, xyz, Begalore, 591222', contact: '7353249095', status: '0'},
+        {name : 'Jhon don4', address : '#123, 1cross, house, xyz, Begalore, 591222', contact: '7353249095', status: '0'}
     ]
   return (
     

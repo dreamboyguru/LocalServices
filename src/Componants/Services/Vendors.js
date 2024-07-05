@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { CgProfile } from 'react-icons/cg';
 import { Link, useLocation } from 'react-router-dom';
 import { MdOutlineKeyboardBackspace } from "react-icons/md";
+import Footer from '../Footer';
 
 const Vendors = () => {
     const [data, setData] = useState([]);
@@ -45,11 +46,12 @@ const Vendors = () => {
                 <h1 className='text-2xl max-md:text-lg font-bold max-md:text-black'>{name}'s Lists</h1>
             </div>
             <div className="flex flex-wrap justify-center gap-6">
-                {data && data.map((item, index) => (
+            { data.length > 0 ?
+                data && data.map((item, index) => (
                     <div className="w-64 max-md:w-full bg-white rounded-lg shadow-lg flex flex-col justify-between relative mb-16 max-md:mb-10 z-10" key={index}>
                         <div className="relative h-20">
-                            {/* <img className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-28 h-28 rounded-full border-4 border-white shadow-md bg-gray-200" src={`${url}/uploads/vendors/photo/${item.img}`} alt={item.name} /> */}
-                            <img className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-28 h-28 rounded-full border-4 border-white shadow-md bg-gray-200" src={`${item.img}`} alt={item.name} />
+                            <img className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-28 h-28 rounded-full border-4 border-white shadow-md bg-gray-200" src={`${url}/uploads/vendors/photo/${item.photo}`} alt={item.name} />
+                            {/* <img className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-28 h-28 rounded-full border-4 border-white shadow-md bg-gray-200" src={`${item.img}`} alt={item.name} /> */}
                         </div>
                         <div className="p-4 text-left -mt-10 text-gray-800 flex-grow">
                             <h3 className="text-lg font-semibold text-gray-800 text-center mb-2">{item.name}</h3>
@@ -74,8 +76,11 @@ const Vendors = () => {
                             </div>
                         </div>
                     </div>
-                ))}
+                )) :
+                <p className='flex justify-center items-center text-2xl  font-bold text-gray-400 h-[545px]'>No Services Found...</p>
+            }
             </div>
+            <footer className='-m-4 mt-44'><Footer className=''/></footer>
         </div>
   );
 };

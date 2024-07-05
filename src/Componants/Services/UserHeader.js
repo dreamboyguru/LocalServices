@@ -23,8 +23,8 @@ const UserHeader = () => {
             <ul className='absolute w-40 top-16 right-10 max-md:-right-1 max-md:top-12 rounded-b-md text-center transition-transform duration-500 ease-out transform origin-top'
             style={{ backgroundImage: `url(${headerbg})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
             >
-                <hr className='border-gray-600'/>
-                <li className='py-3 max-md:py-2 px-5 hover:bg-gray-800'><Link to='/settings'>Settings</Link></li>
+                {/* <hr className='border-gray-600'/>
+                <li className='py-3 max-md:py-2 px-5 hover:bg-gray-800'><Link to='/settings'>Settings</Link></li> */}
                 <hr className='border-gray-600'/>
                 <li className='py-3 max-md:py-2 px-5 hover:bg-gray-800 hover:rounded-b-md'><Link to='logout'>Logout</Link></li>
             </ul>

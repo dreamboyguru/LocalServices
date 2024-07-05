@@ -16,7 +16,7 @@ function App() {
               <Route path='logout' element={<Logout />} />
               {/* <Route path='test' element={<Test />} /> */}
             </Routes>
-            <Footer />
+            {/* <Footer /> */}
         </div>
   );
 }

@@ -135,8 +135,8 @@ const AddServices = () => {
                 return(
                     <div className='bg-white p-1 m-2 w-48 max-md:w-[49%] max-md:my-1 shadow-md rounded-md h-48' key={item.id}>
                         <div>
-                            {/* <img src={`${url}/uploads/Services/${item.img}`} alt={`${item.img} Services image`} className='h-36 w-full'/> */}
-                            <img src={`${item.img}`} alt={`${item.img} Services image`} className='h-36 w-full'/>
+                            <img src={`${url}/uploads/Services/${item.img}`} alt={`${item.img} Services image`} className='h-36 w-full'/>
+                            {/* <img src={`${item.img}`} alt={`${item.img} Services image`} className='h-36 w-full'/> */}
                         </div>
                         <div className='flex mt-2 justify-center'>
                             {item.name}

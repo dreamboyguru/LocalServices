@@ -14,8 +14,8 @@ const Documents = () => {
     const documentToggle = (img) => {
         const arr = [];
         arr.push(img.adhar, img.pan, img.other);
-        // setImgData(arr);
-        setImgData(img.img);
+        setImgData(arr);
+        // setImgData(img.img);
         setDocumentBox(true);
     }
     const decID = (id) => {
@@ -37,7 +37,7 @@ const Documents = () => {
         const fetchData = async() => {
             try {
                 const response = await axios.get(`${url}/api/doc/data`);
-                // console.log(response.data);
+                console.log(response.data);
                 setDocData(response.data)
             } catch (err) {
                 console.log(err);
@@ -68,8 +68,8 @@ const Documents = () => {
                     <RiCloseLine className='absolute -top-1 -right-1 text-5xl cursor-pointer hover:scale-110 text-red-800' onClick={()=>setDocumentBox(false)} />
                     <div>
                         <MdKeyboardDoubleArrowLeft className='absolute top-[40%] left-0 text-6xl cursor-pointer hover:scale-110 text-gray-500' onClick={()=>decID(id)} />
-                        {/* <img src={`${url}/uploads/documents/${imgData[id]}`} className='w-full h-full' /> */}
-                        <img src={`${imgData}`} className='w-full h-full' />
+                        <img src={`${url}/uploads/documents/${imgData[id]}`} className='w-full h-full' />
+                        {/* <img src={`${imgData}`} className='w-full h-full' /> */}
                         <MdKeyboardDoubleArrowRight className='absolute top-[40%] right-0 text-6xl cursor-pointer hover:scale-110 text-gray-500' onClick={()=>incID(id)} />
                     </div>
                 </div>

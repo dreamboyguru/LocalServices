@@ -86,7 +86,7 @@ const Header = () => {
 
     const dropdown = () => {
         return (
-            <ul className='absolute w-40 top-16 right-10 max-md:right-1 rounded-b-md text-center transition-transform duration-500 ease-out transform origin-top bg-opacity-80' style={{ backgroundImage: `url(${bg})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+            <ul className={`absolute w-40 top-16 right-10 max-md:right-1 rounded-b-md text-center transition-transform duration-500 ease-out transform origin-top bg-opacity-80`} style={{ backgroundImage: `url(${bg})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
                 <li onClick={()=>{
                         setloginType('User');
                         setLogin(true);
@@ -127,7 +127,7 @@ const Header = () => {
             }
             {selectedComponent === null ? 
                 <div>
-                    <header className='fixed w-full bg-gray-700 p-4 flex flex-row justify-between items-center shadow-md px-14 z-10 bg-opacity-80 max-md:hidden'
+                    <header className={`fixed w-full bg-gray-700 p-4 flex flex-row justify-between items-center shadow-md px-14 z-10 bg-opacity-80 max-md:hidden ${login || register? 'blur-sm' : ''} `}
                         style={{ backgroundImage: `url(${headerbg})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
                         onClick={loginToggleShow}
                     >{type !== null ? handleClick(type) : null}
@@ -163,6 +163,7 @@ const Header = () => {
                         <ImageSlider />
                         
                     </body>
+                    <footer><Footer /></footer>
                 </div> :
                 selectedComponent
             }

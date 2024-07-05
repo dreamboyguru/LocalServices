@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import Footer from '../Footer';
 
 function ServicePage() {
   const [services, setServices] = useState([]);
@@ -38,7 +39,7 @@ function ServicePage() {
     
   }, []);
   return (
-    <div className='relative pt-20 max-md:pt-24 flex flex-wrap justify-center'>
+    <div className='relative pt-20 max-md:pt-24 flex flex-wrap justify-center min-h-screen'>
       <div className='fixed top-3 max-md:top-16 left-1/2 -translate-x-1/2 z-40 text-gray-50'>
             <h1 className='text-2xl max-md:text-lg font-bold max-md:text-black '>OUR SERVICES</h1>
         </div>
@@ -49,24 +50,25 @@ function ServicePage() {
               to = '/vendors'
               state = {service} 
             >
-              {/* <img 
+              <img 
                 src={`${url}/uploads/Services/${service.img}`} 
                 alt={service.name} 
                 className='w-full h-52 max-sm:h-auto object-cover rounded-t-md'
-              /> */}
-              <img 
+              />
+              {/* <img 
                 src={`${service.img}`} 
                 alt={service.name} 
                 className='w-full h-52 max-sm:h-auto object-cover rounded-t-md'
-              />
+              /> */}
               <div className='item-center p-2'>
                 <h2 className='text-lg font-semibold text-center justify-center'>{service.name}</h2>
               </div>
             </Link>
           </div>
         ))
-        : <p className='text-gray-500'>No Services Found...</p>
+        : <p className='flex justify-center items-center text-2xl  font-bold text-gray-400 h-[577px]'>No Services Found...</p>
       }
+      <footer className='w-full mt-8'><Footer className=''/></footer>
     </div>
   );
 }

@@ -24,6 +24,11 @@ const LeavesList = () => {
         }
         fetchData();
     }, [])
+    const handleLeaveStatus = (id) => {
+        axios.put(`${url}/api/leave/status`)
+            .then(response => console.log(response.data))
+            .catch(err => console.log(err))
+    }
   return (
     <div className='flex justify-center'>
         <div className="shadow-lg w-[58%] max-md:w-full mb-5 ml-5 max-md:ml-0 h-auto">
@@ -45,8 +50,12 @@ const LeavesList = () => {
                             {item?.status === 0 ? 
                                 <td className="border border-gray-300 px-4 max-md:px-1 py-3 font-bold text-yellow-600">Approval</td> :
                                 item.status === 1 ?
-                                    <td className="border border-gray-300 px-4 max-md:px-1 py-3 font-bold text-green-600">Approved</td> :
-                                    <td className="border border-gray-300 px-4 max-md:px-1 py-3 font-bold text-red-600">Rejected</td>
+                                    <td 
+                                        onclick={()=>handleLeaveStatus(item.id)}
+                                        className="border border-gray-300 px-4 max-md:px-1 py-3 font-bold text-green-600">Approved</td> :
+                                    <td 
+                                        onclick={()=>handleLeaveStatus(item.id)}
+                                        className="border border-gray-300 px-4 max-md:px-1 py-3 font-bold text-red-600">Rejected</td>
                             }
                         </tr>
                     )}
