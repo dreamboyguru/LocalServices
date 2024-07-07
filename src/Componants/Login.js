@@ -40,13 +40,38 @@ const Login = ({loginType, loginShow, userRegShow, VendorRegShow}) => {
         }
     }
 
+    const loginUser = async(values) =>{
+        const {email, password} = values;
+        try {
+            const response = await axios.post(`${url}/api/user/login`,{
+                email,
+                password
+            });
+            console.log(response);
+            if (response.data.token) {
+                localStorage.setItem('token', response.data.token);
+                localStorage.setItem('type', 'Component1');
+                localStorage.setItem('email', email);
+                if(response.data.status === 1) {
+                    localStorage.setItem('verify', response.data.status);
+                    console.log(response.data.status);
+                }
+                window.location.reload();
+            } else {
+                setErrorMessage('Invalid login credentials');
+            }
+        } catch (err) {
+            setErrorMessage(err.response.data.error);
+            console.log(err);
+        }
+    }
+
     // Handle form submission
     const handleSubmit = (values) => {
         // console.log(values);
         // const {email, password} = values;
         if(loginType === 'User') {
-            localStorage.setItem('type', 'Component1');
-            window.location.reload();
+            loginUser(values);
         } else if(loginType === 'Vendor') {
             loginVendor(values);
         } else if(loginType === 'Admin') {

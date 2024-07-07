@@ -39,37 +39,39 @@ function ServicePage() {
     
   }, []);
   return (
-    <div className='relative pt-20 max-md:pt-24 flex flex-wrap justify-center min-h-screen'>
-      <div className='fixed top-3 max-md:top-16 left-1/2 -translate-x-1/2 z-40 text-gray-50'>
-            <h1 className='text-2xl max-md:text-lg font-bold max-md:text-black '>OUR SERVICES</h1>
-        </div>
-      {services.length > 0 ? 
-        services.map((service, index) => (
-          <div key={index} className='bg-gray-600 w-52 max-md:w-36 max-sm:w-[48%] max-sm:h-auto h-auto m-2 max-md:m-0.5 rounded-md overflow-hidden shadow-lg p-0.5 hover:scale-105 duration-500'>
-            <Link 
-              to = '/vendors'
-              state = {service} 
-            >
-              <img 
-                src={`${url}/uploads/Services/${service.img}`} 
-                alt={service.name} 
-                className='w-full h-52 max-sm:h-auto object-cover rounded-t-md'
-              />
-              {/* <img 
-                src={`${service.img}`} 
-                alt={service.name} 
-                className='w-full h-52 max-sm:h-auto object-cover rounded-t-md'
-              /> */}
-              <div className='item-center p-2'>
-                <h2 className='text-lg font-semibold text-center justify-center'>{service.name}</h2>
-              </div>
-            </Link>
+    <>
+      <div className='relative pt-20 max-md:pt-24 flex flex-wrap justify-start min-h-screen md:mx-20'>
+        <div className='fixed top-3 max-md:top-16 left-1/2 -translate-x-1/2 z-40 text-gray-50'>
+              <h1 className='text-2xl max-md:text-lg font-bold max-md:text-black '>OUR SERVICES</h1>
           </div>
-        ))
-        : <p className='flex justify-center items-center text-2xl  font-bold text-gray-400 h-[577px]'>No Services Found...</p>
-      }
+        {services.length > 0 ? 
+          services.map((service, index) => (
+            <div key={index} className='bg-gray-600 w-52 max-md:w-36 max-sm:w-[48%] max-sm:h-32 h-64 m-2 max-md:m-0.5 rounded-md overflow-hidden shadow-lg p-0.5 hover:scale-105 duration-500'>
+              <Link 
+                to = '/vendors'
+                state = {service} 
+              >
+                <img 
+                  src={`${url}/uploads/Services/${service.img}`} 
+                  alt={service.name} 
+                  className='w-full h-52 max-sm:h-auto object-cover rounded-t-md'
+                />
+                {/* <img 
+                  src={`${service.img}`} 
+                  alt={service.name} 
+                  className='w-full h-52 max-sm:h-auto object-cover rounded-t-md'
+                /> */}
+                <div className='item-center p-2'>
+                  <h2 className='text-lg font-semibold text-center justify-center'>{service.name}</h2>
+                </div>
+              </Link>
+            </div>
+          ))
+          : <p className='flex justify-center items-center text-2xl  font-bold text-gray-400 h-[577px]'>No Services Found...</p>
+        }
+      </div>
       <footer className='w-full mt-8'><Footer className=''/></footer>
-    </div>
+    </>
   );
 }
 

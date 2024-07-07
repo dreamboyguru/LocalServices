@@ -1,13 +1,31 @@
-import React from 'react'
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
 
 const UsersList = () => {
+    const [load, setLoad] = useState(false);
+    const url = process.env.REACT_APP_API_URL;
     const leave = [
         {name : 'Jhon don', address : '#123, 1cross, house, xyz, Begalore, 591222', contact: '7353249095', status: '0'},
         {name : 'Jhon don2', address : '#123, 1cross, house, xyz, Begalore, 591222', contact: '7353249095', status: '1'}, 
         {name : 'Jhon don3', address : '#123, 1cross, house, xyz, Begalore, 591222', contact: '7353249095', status: '0'},
         {name : 'Jhon don4', address : '#123, 1cross, house, xyz, Begalore, 591222', contact: '7353249095', status: '0'}
     ]
-  return (
+
+    useEffect(() => {
+        const fetchData = async() => {
+            try {
+                const response = await axios.get(`${url}/api/users`);
+                console.log(response.data);
+            } catch (err) {
+                console.log(err);
+            } finally {
+                setLoad(false)
+            }
+        }
+        fetchData();
+    })
+
+    return (
     
     <table className="min-w-full border-collapse border border-gray-300 shadow-lg max-md:text-xs">
         <thead>

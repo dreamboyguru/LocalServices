@@ -3,13 +3,14 @@ import React, { useEffect, useState } from 'react'
 
 const LeavesList = () => {
     const [leave, setLeave] = useState([]);
+    const [load, setLoad] = useState(false);
     const url = process.env.REACT_APP_API_URL;
     
     useEffect(()=>{
         const fetchData = async() => {
             try {
                 const response = await axios.get(`${url}/api/leave`);
-                console.log(response.data);
+                // console.log(response.data);
                 setLeave(response.data);
             }
             catch (err) {
@@ -23,9 +24,20 @@ const LeavesList = () => {
             }
         }
         fetchData();
-    }, [])
+        setLoad(false);
+    }, [load])
     const handleLeaveStatus = (id) => {
-        axios.put(`${url}/api/leave/status`)
+        setLoad(true)
+        // console.log(id);
+        let {leaves_id, status} = id;
+        if(status === 0) {
+            status = 1;
+        } else if (status === 1) {
+            status = 2
+        } else if (status === 2) {
+            status = 0;
+        }
+        axios.put(`${url}/api/leave/status/${leaves_id}`, {status : status})
             .then(response => console.log(response.data))
             .catch(err => console.log(err))
     }
@@ -43,19 +55,21 @@ const LeavesList = () => {
                 </thead>
                 <tbody className="text-center text-black">
                     {leave && leave.map((item, index) =>
-                        <tr className="odd:bg-white even:bg-gray-50" key={item.id}>
+                        <tr className="odd:bg-white even:bg-gray-50" key={index}>
                             <td className="border border-gray-300 px-4 max-md:px-1 py-3">{index+1}</td>
                             <td className="border border-gray-300 px-4 max-md:px-1 py-3">{item?.firstName}</td>
                             <td className="border border-gray-300 px-4 max-md:px-1 py-3">{item?.date.split('T')[0]}</td>
                             {item?.status === 0 ? 
-                                <td className="border border-gray-300 px-4 max-md:px-1 py-3 font-bold text-yellow-600">Approval</td> :
+                                <td 
+                                    onClick={()=>handleLeaveStatus(item)}
+                                    className="border border-gray-300 px-4 max-md:px-1 py-3 font-bold text-yellow-600">Approval</td> :
                                 item.status === 1 ?
                                     <td 
-                                        onclick={()=>handleLeaveStatus(item.id)}
-                                        className="border border-gray-300 px-4 max-md:px-1 py-3 font-bold text-green-600">Approved</td> :
+                                        onClick={()=>handleLeaveStatus(item)}
+                                        className="border border-gray-300 px-4 max-md:px-1 py-3 font-bold text-green-600 cursor-pointer">Approved</td> :
                                     <td 
-                                        onclick={()=>handleLeaveStatus(item.id)}
-                                        className="border border-gray-300 px-4 max-md:px-1 py-3 font-bold text-red-600">Rejected</td>
+                                        onClick={()=>handleLeaveStatus(item)}
+                                        className="border border-gray-300 px-4 max-md:px-1 py-3 font-bold text-red-600 cursor-pointer">Rejected</td>
                             }
                         </tr>
                     )}

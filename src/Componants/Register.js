@@ -28,7 +28,31 @@ const Register = ({regType, RegistrationShow, userLoginShow, vendorLoginShow}) =
     const handleSubmit = (values) => {
         console.log(values);
         if (regType === 'User') {
-            return;
+            const formData = new FormData();
+            formData.append('firstName', values.firstName);
+            formData.append('lastName', values.lastName);
+            formData.append('email', values.email);
+            formData.append('phone', values.phone);
+            formData.append('address', values.address);
+            formData.append('photo', values.photo);
+            formData.append('password', values.password);
+            formData.append('reEnter', values.reEnter);
+            axios.post(`${url}/vendor/user/api`, formData, {
+                headers : {
+                    'Content-Type' : 'multipart/form-data'
+                }
+            })
+                .then(response => {
+                    console.log(response.data);
+                    if(response.status === 200) {
+                        setLoginBox(true);
+                    }
+                })
+                .catch(err => {
+                    console.error('Error registering vendor:', err);
+                    setErrorMsg(err.response.data.message);
+                    setError(true)
+                });
         } else if (regType === 'Vendor') {
             const formData = new FormData();
             formData.append('firstName', values.firstName);

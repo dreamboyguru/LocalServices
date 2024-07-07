@@ -18,7 +18,7 @@ const Dashboard = () => {
             </h1>
         </div>
         <div className="bg-white w-[24%] max-md:w-[48.5%]  h-40 max-md:h-28 text-green-600 m-0.5 flex flex-col justify-center items-center rounded-md">
-            <h1 className="text-center  text-5xl mb-2">10</h1> 
+            <h1 className="text-center  text-5xl mb-2">{localStorage.getItem('vendorsCount')}</h1> 
             <h1 className="text-center text-2xl max-sm:text-lg font-bold flex flex-row w-full justify-center items-center">
                 <GrUserWorker  ineFileDownloadDone className='size-12 max-sm:size-10 pr-2 text-green-600' />
                 Vendors
