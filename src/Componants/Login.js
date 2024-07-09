@@ -52,6 +52,7 @@ const Login = ({loginType, loginShow, userRegShow, VendorRegShow}) => {
                 localStorage.setItem('token', response.data.token);
                 localStorage.setItem('type', 'Component1');
                 localStorage.setItem('email', email);
+                localStorage.setItem('name', response.data.name);
                 if(response.data.status === 1) {
                     localStorage.setItem('verify', response.data.status);
                     console.log(response.data.status);

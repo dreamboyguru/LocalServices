@@ -19,7 +19,7 @@ const UsersList = () => {
                 const response = await axios.get(`${url}/api/vendors`);
                 console.log(response.data);
                 setLeave(response.data);
-                localStorage.setItem('vendorsCount', response.data.length);
+                // localStorage.setItem('vendorsCount', response.data.length);
             } catch (err) {
                 console.log(err);
             } finally {
