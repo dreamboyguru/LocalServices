@@ -40,13 +40,13 @@ function ServicePage() {
   }, []);
   return (
     <>
-      <div className='relative pt-20 max-md:pt-24 flex flex-wrap justify-start min-h-screen md:mx-20'>
+      <div className='relative pt-20 max-md:pt-24 flex flex-wrap  min-h-screen md:mx-20'>
         <div className='fixed top-3 max-md:top-16 left-1/2 -translate-x-1/2 z-40 text-gray-50'>
               <h1 className='text-2xl max-md:text-lg font-bold max-md:text-black '>OUR SERVICES</h1>
           </div>
         {services.length > 0 ? 
           services.map((service, index) => (
-            <div key={index} className='bg-gray-600 w-52 max-md:w-36 max-sm:w-[48%] max-sm:h-32 h-64 m-2 max-md:m-0.5 rounded-md overflow-hidden shadow-lg p-0.5 hover:scale-105 duration-500'>
+            <div key={index} className='bg-gray-600 w-52 max-md:w-36 max-sm:w-[48%] max-sm:h-32 h-64 m-2 max-md:m-0.5 rounded-md overflow-hidden shadow-lg p-0.5 hover:scale-105 duration-500 '>
               <Link 
                 to = '/vendors'
                 state = {service} 

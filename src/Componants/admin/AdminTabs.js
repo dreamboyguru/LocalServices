@@ -33,8 +33,8 @@ const AdminTabs = () => {
     const dropdown = () => {
         return (
             <ul className='absolute w-40 bg-gray-800 top-12 -right-10 rounded-b-md text-white shadow-md transition-transform duration-300 transform origin-top'>
-                <hr className='border-gray-700'/>
-                <li className='py-3 px-5 hover:bg-gray-700'><Link to='/settings'>Settings</Link></li>
+                {/* <hr className='border-gray-700'/>
+                <li className='py-3 px-5 hover:bg-gray-700'><Link to='/settings'>Settings</Link></li> */}
                 <hr className='border-gray-700'/>
                 <li className='py-3 px-5 hover:bg-gray-700 hover:rounded-b-md'><Link to='logout'>Logout</Link></li>
             </ul>

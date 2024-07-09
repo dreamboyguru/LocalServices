@@ -132,10 +132,11 @@ const Header = () => {
                         onClick={loginToggleShow}
                     >{type !== null ? handleClick(type) : null}
                         <h1 className='text-2xl'>LSP</h1>
+                        <h2 className="text-2xl max-md:text-xl max-md:ml-5 font-extrabold text-gray-100 font-mono">Local Services Portal</h2>
                         <nav>
                             <ul className='flex flex-row space-x-4'>
-                                <li><a href='#about'>About Us</a></li>
-                                <li><a href='#contact'>Contact Us</a></li>
+                                {/* <li><a href='#about'>About Us</a></li>
+                                <li><a href='#contact'>Contact Us</a></li> */}
                                 <li onClick={loginToggle}>
                                     <CgProfile size={32} className='ml-2 hover:scale-110 duration-300'/>
                                     {loginBox && dropdown()}
