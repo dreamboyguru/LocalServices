@@ -129,11 +129,11 @@ const Login = ({loginType, loginShow, userRegShow, VendorRegShow}) => {
                                     </div>
                                 </div>
                                 <div className='flex flex-row justify-between items-center'>
-                                    <div className=' text-gray-50 hover:cursor-wait ml-5 max-md:ml-1'>
+                                    {/* <div className=' text-gray-50 hover:cursor-wait ml-5 max-md:ml-1'>
                                         Forgot password ?
-                                    </div>
-                                    <div className='mr-5 max-md:mr-2'>
-                                        <button type='submit' className='bg-gray-300 hover:bg-gray-50 text-black py-2 max-md:py-1 px-6 rounded-md'>Submit</button>
+                                    </div> */}
+                                    <div className='w-full'>
+                                        <button type='submit' className='w-full bg-gray-300 hover:bg-gray-50 text-black py-2 max-md:py-1 px-6 rounded-md'>Submit</button>
                                     </div>
                                 </div>
                             </Form>
