@@ -10,6 +10,7 @@ const Vendors = () => {
     const [data, setData] = useState([]);
     const location = useLocation();
     const { name } = location.state || {};
+    console.log(name); 
     const url = process.env.REACT_APP_API_URL;
 
     useEffect(()=>{
@@ -20,18 +21,18 @@ const Vendors = () => {
                 setData(response.data);
             } catch (err) {
                 console.log(err);
-                setData([
-                    { name: 'John Doe', address : '#123, 1cross, house, xyz, Begalore, 591222', phone: '8596547512', one_day: 250, one_week: 600, one_month: 15000, Reviews : '****', 'img' : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpTwcJ9tqAmoGv-S_oRVKNPViJUAk6louIlQ&s' },
-                    { name: 'Jane Smith', address : '#123, 1cross, house, xyz, Begalore, 591222', phone: '8596547512', one_day: 250, one_week: 600, one_month: 15000, Reviews : '****', 'img' : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpTwcJ9tqAmoGv-S_oRVKNPViJUAk6louIlQ&s'},
-                    { name: 'Sam Johnson', address : '#123, 1cross, house, xyz, Begalore, 591222', phone: '8596547512', one_day: 250, one_week: 600, one_month: 15000, Reviews : '****', 'img' : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpTwcJ9tqAmoGv-S_oRVKNPViJUAk6louIlQ&s' },
-                    { name: 'John Doe', address : '#123, 1cross, house, xyz, Begalore, 591222', phone: '8596547512', one_day: 250, one_week: 600, one_month: 15000, Reviews : '****', 'img' : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpTwcJ9tqAmoGv-S_oRVKNPViJUAk6louIlQ&s' },
-                    { name: 'Jane Smith', address : '#123, 1cross, house, xyz, Begalore, 591222', phone: '8596547512', one_day: 250, one_week: 600, one_month: 15000, Reviews : '****', 'img' : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpTwcJ9tqAmoGv-S_oRVKNPViJUAk6louIlQ&s'},
-                    { name: 'Sam Johnson', address : '#123, 1cross, house, xyz, Begalore, 591222', phone: '8596547512', one_day: 250, one_week: 600, one_month: 15000, Reviews : '****', 'img' : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpTwcJ9tqAmoGv-S_oRVKNPViJUAk6louIlQ&s' },
-                    { name: 'John Doe', address : '#123, 1cross, house, xyz, Begalore, 591222', phone: '8596547512', one_day: 250, one_week: 600, one_month: 15000, Reviews : '****', 'img' : 'https://www.hyperlinkcode.com/images/hcImageHyperlink.jpg' },
-                    { name: 'Jane Smith', address : '#123, 1cross, house, xyz, Begalore, 591222', phone: '8596547512', one_day: 250, one_week: 600, one_month: 15000, Reviews : '****', 'img' : 'https://www.hyperlinkcode.com/images/hcImageHyperlink.jpg'},
-                    { name: 'Sam Johnson', address : '#123, 1cross, house, xyz, Begalore, 591222', phone: '8596547512', one_day: 250, one_week: 600, one_month: 15000, Reviews : '****', 'img' : 'https://www.hyperlinkcode.com/images/hcImageHyperlink.jpg' },
-                    { name: 'John Doe', address : '#123, 1cross, house, xyz, Begalore, 591222', phone: '8596547512', one_day: 250, one_week: 600, one_month: 15000, Reviews : '****', 'img' : 'https://www.hyperlinkcode.com/images/hcImageHyperlink.jpg' },
-                ])
+                // setData([
+                //     { name: 'John Doe', address : '#123, 1cross, house, xyz, Begalore, 591222', phone: '8596547512', one_day: 250, one_week: 600, one_month: 15000, Reviews : '****', 'img' : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpTwcJ9tqAmoGv-S_oRVKNPViJUAk6louIlQ&s' },
+                //     { name: 'Jane Smith', address : '#123, 1cross, house, xyz, Begalore, 591222', phone: '8596547512', one_day: 250, one_week: 600, one_month: 15000, Reviews : '****', 'img' : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpTwcJ9tqAmoGv-S_oRVKNPViJUAk6louIlQ&s'},
+                //     { name: 'Sam Johnson', address : '#123, 1cross, house, xyz, Begalore, 591222', phone: '8596547512', one_day: 250, one_week: 600, one_month: 15000, Reviews : '****', 'img' : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpTwcJ9tqAmoGv-S_oRVKNPViJUAk6louIlQ&s' },
+                //     { name: 'John Doe', address : '#123, 1cross, house, xyz, Begalore, 591222', phone: '8596547512', one_day: 250, one_week: 600, one_month: 15000, Reviews : '****', 'img' : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpTwcJ9tqAmoGv-S_oRVKNPViJUAk6louIlQ&s' },
+                //     { name: 'Jane Smith', address : '#123, 1cross, house, xyz, Begalore, 591222', phone: '8596547512', one_day: 250, one_week: 600, one_month: 15000, Reviews : '****', 'img' : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpTwcJ9tqAmoGv-S_oRVKNPViJUAk6louIlQ&s'},
+                //     { name: 'Sam Johnson', address : '#123, 1cross, house, xyz, Begalore, 591222', phone: '8596547512', one_day: 250, one_week: 600, one_month: 15000, Reviews : '****', 'img' : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpTwcJ9tqAmoGv-S_oRVKNPViJUAk6louIlQ&s' },
+                //     { name: 'John Doe', address : '#123, 1cross, house, xyz, Begalore, 591222', phone: '8596547512', one_day: 250, one_week: 600, one_month: 15000, Reviews : '****', 'img' : 'https://www.hyperlinkcode.com/images/hcImageHyperlink.jpg' },
+                //     { name: 'Jane Smith', address : '#123, 1cross, house, xyz, Begalore, 591222', phone: '8596547512', one_day: 250, one_week: 600, one_month: 15000, Reviews : '****', 'img' : 'https://www.hyperlinkcode.com/images/hcImageHyperlink.jpg'},
+                //     { name: 'Sam Johnson', address : '#123, 1cross, house, xyz, Begalore, 591222', phone: '8596547512', one_day: 250, one_week: 600, one_month: 15000, Reviews : '****', 'img' : 'https://www.hyperlinkcode.com/images/hcImageHyperlink.jpg' },
+                //     { name: 'John Doe', address : '#123, 1cross, house, xyz, Begalore, 591222', phone: '8596547512', one_day: 250, one_week: 600, one_month: 15000, Reviews : '****', 'img' : 'https://www.hyperlinkcode.com/images/hcImageHyperlink.jpg' },
+                // ])
             }
         }
         fetchData()
@@ -64,7 +65,7 @@ const Vendors = () => {
                             <h1 className="font-semibold">Rates</h1>
                             <div className="flex justify-between">
                                 <span className="text-gray-600">Daily Rate:</span>
-                                <span className="text-gray-600">₹ {item.one_day ? item.one_day.toFixed(2): 'NA'}</span>
+                                <span className="text-gray-600">₹ {item.one_day ? (item.one_day).toFixed(2) : 'NA'}</span>
                             </div>
                             <div className="flex justify-between">
                                 <span className="text-gray-600">Weekly Rate:</span>
@@ -72,7 +73,7 @@ const Vendors = () => {
                             </div>
                             <div className="flex justify-between pb-2">
                                 <span className="text-gray-600">Monthly Rate:</span>
-                                <span className="text-gray-600">₹ {item.one_month ? item.one_month.toFixed(2) : 'NA'}</span>
+                                <span className="text-gray-600">₹ {item.one_month ? item.one_month.toFixed(2) : "NA"}</span>
                             </div>
                         </div>
                     </div>

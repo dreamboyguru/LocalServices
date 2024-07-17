@@ -10,7 +10,7 @@ const LeavesList = () => {
         const fetchData = async() => {
             try {
                 const response = await axios.get(`${url}/api/leave`);
-                // console.log(response.data);
+                console.log(response.data);
                 setLeave(response.data);
             }
             catch (err) {
@@ -29,15 +29,15 @@ const LeavesList = () => {
     const handleLeaveStatus = (id) => {
         setLoad(true)
         // console.log(id);
-        let {leaves_id, status} = id;
-        if(status === 0) {
-            status = 1;
-        } else if (status === 1) {
-            status = 2
-        } else if (status === 2) {
-            status = 0;
+        let {leaves_id, leave_status} = id;
+        if(leave_status === 0) {
+            leave_status = 1;
+        } else if (leave_status === 1) {
+            leave_status = 2
+        } else if (leave_status === 2) {
+            leave_status = 0;
         }
-        axios.put(`${url}/api/leave/status/${leaves_id}`, {status : status})
+        axios.put(`${url}/api/leave/status/${leaves_id}`, {status : leave_status})
             .then(response => console.log(response.data))
             .catch(err => console.log(err))
     }
@@ -59,11 +59,11 @@ const LeavesList = () => {
                             <td className="border border-gray-300 px-4 max-md:px-1 py-3">{index+1}</td>
                             <td className="border border-gray-300 px-4 max-md:px-1 py-3">{item?.firstName}</td>
                             <td className="border border-gray-300 px-4 max-md:px-1 py-3">{item?.date.split('T')[0]}</td>
-                            {item?.status === 0 ? 
+                            {item?.leave_status === 0 ? 
                                 <td 
                                     onClick={()=>handleLeaveStatus(item)}
                                     className="border border-gray-300 px-4 max-md:px-1 py-3 font-bold text-yellow-600">Approval</td> :
-                                item.status === 1 ?
+                                item.leave_status === 1 ?
                                     <td 
                                         onClick={()=>handleLeaveStatus(item)}
                                         className="border border-gray-300 px-4 max-md:px-1 py-3 font-bold text-green-600 cursor-pointer">Approved</td> :

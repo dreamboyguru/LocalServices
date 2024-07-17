@@ -10,17 +10,17 @@ const RatesList = () => {
         const fetchData = async() => {
             try {
                 const response = await axios.get(`${url}/api/rates`);
-                console.log(response.data);
+                // console.log(response.data);
                 setRates(response.data);
             }
             catch (err) {
                 console.log(err);
-                setRates([
-                    {firstName:'Jhon deo 1', phone:'8957456218', one_day:250, one_week:600, one_month:15000, date:'01-06-2024', status:0},
-                    {firstName:'Jhon deo 2', phone:'8957456218', one_day:250, one_week:600, one_month:15000, date:'01-06-2024', status:1}, 
-                    {firstName:'Jhon deo 3', phone:'8957456218', one_day:250, one_week:600, one_month:15000, date:'01-06-2024', status:1},
-                    {firstName:'Jhon deo 4', phone:'8957456218', one_day:250, one_week:600, one_month:15000, date:'01-06-2024', status:0}
-                ])
+                // setRates([
+                //     {firstName:'Jhon deo 1', phone:'8957456218', one_day:250, one_week:600, one_month:15000, date:'01-06-2024', status:0},
+                //     {firstName:'Jhon deo 2', phone:'8957456218', one_day:250, one_week:600, one_month:15000, date:'01-06-2024', status:1}, 
+                //     {firstName:'Jhon deo 3', phone:'8957456218', one_day:250, one_week:600, one_month:15000, date:'01-06-2024', status:1},
+                //     {firstName:'Jhon deo 4', phone:'8957456218', one_day:250, one_week:600, one_month:15000, date:'01-06-2024', status:0}
+                // ])
             } finally {
                 setLoding(false)
             }
@@ -66,17 +66,17 @@ const RatesList = () => {
                                 <div><span className='font-semibold'>One Day : </span> {item.one_week} Rs</div>
                                 <div><span className='font-semibold'>one Month : </span> {item.one_month} Rs</div>
                             </td>
-                            {item.status === 1 ? 
+                            {item.rates_status === 1 ? 
                                 <td className="px-2 max-md:px-2 py-4 font-bold text-green-600">
                                     <span 
                                         className='hover:cursor-pointer' 
-                                        onClick={()=>rateStatusClick(item.email, item.status)}
+                                        onClick={()=>rateStatusClick(item.email, item.rates_status)}
                                     >Verified</span>
                                 </td> :
                                 <td className="px-2 max-md:px-2 py-4 font-bold text-yellow-600">
                                     <span 
                                         className='hover:cursor-pointer' 
-                                        onClick={()=>rateStatusClick(item.email, item.status)}
+                                        onClick={()=>rateStatusClick(item.email, item.rates_status)}
                                     >Verify</span>
                                 </td>
                                     
