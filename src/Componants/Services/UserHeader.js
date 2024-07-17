@@ -4,6 +4,7 @@ import { CgProfile } from "react-icons/cg";
 import { Link, Route, Routes } from 'react-router-dom';
 import ServicePage from './ServicePage';
 import headerbg from '../../Images/header-bg.jpg'
+import { LiaServicestack } from 'react-icons/lia';
 
 const UserHeader = () => {
     const [loginBox, setLoginBox] = useState(false);
@@ -37,7 +38,7 @@ const UserHeader = () => {
                 style={{ backgroundImage: `url(${headerbg})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
                 onClick={loginToggleShow}
             >
-                <h1 className='ml-20 max-md:ml-32 text-2xl max-md:text-lg'>LSP</h1>
+                <h1 className='ml-20 max-md:ml-32 text-2xl max-md:text-lg'><LiaServicestack /></h1>
                 <nav className=''>
                     <ul className='flex flex-row space-x-4'>
                         <li onClick={loginToggle} className='max-md:absolute max-md:top-3 max-md:right-2'>

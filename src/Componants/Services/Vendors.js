@@ -56,7 +56,7 @@ const Vendors = () => {
                         <div className="p-4 text-left -mt-10 text-gray-800 flex-grow">
                             <h3 className="text-lg font-semibold text-gray-800 text-center mb-2">{item.name}</h3>
                             <p className="text-gray-600 text-sm"><span className='font-semibold text-sm'>Phone : </span>{item.phone}</p>
-                            <p className="text-gray-600 text-sm"><span className='font-semibold text-sm'>Email : </span>email@gmail.com</p>
+                            <p className="text-gray-600 text-sm"><span className='font-semibold text-sm'>Email : </span>{item.email}</p>
                             <p className="text-gray-600 pl-14 text-sm"><span className='font-semibold -ml-14 text-sm'>address : </span>{item.address}</p>
                         </div>
                         <hr className='border border-gray-100 mt-2' />
@@ -64,15 +64,15 @@ const Vendors = () => {
                             <h1 className="font-semibold">Rates</h1>
                             <div className="flex justify-between">
                                 <span className="text-gray-600">Daily Rate:</span>
-                                <span className="text-gray-600">₹ {item.one_day.toFixed(2)}</span>
+                                <span className="text-gray-600">₹ {item.one_day ? item.one_day.toFixed(2): 'NA'}</span>
                             </div>
                             <div className="flex justify-between">
                                 <span className="text-gray-600">Weekly Rate:</span>
-                                <span className="text-gray-600">₹ {item.one_week.toFixed(2)}</span>
+                                <span className="text-gray-600">₹ {item.one_week ? item.one_week.toFixed(2) : 'NA'}</span>
                             </div>
                             <div className="flex justify-between pb-2">
                                 <span className="text-gray-600">Monthly Rate:</span>
-                                <span className="text-gray-600">₹ {item.one_month.toFixed(2)}</span>
+                                <span className="text-gray-600">₹ {item.one_month ? item.one_month.toFixed(2) : 'NA'}</span>
                             </div>
                         </div>
                     </div>

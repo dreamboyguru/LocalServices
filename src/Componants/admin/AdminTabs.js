@@ -13,6 +13,7 @@ import AddServices from './AddServices';
 import Documents from './Documents';
 import LeavesList from './LeavesList';
 import RatesList from './RatesList';
+import { LiaServicestack } from 'react-icons/lia';
 
 const AdminTabs = () => {
     const [loginBox, setLoginBox] = useState(false);
@@ -46,7 +47,7 @@ const AdminTabs = () => {
             <header onClick={loginToggleShow}>
                 <div className='fixed w-full bg-gray-800 p-4 flex justify-between items-center shadow-md px-6 md:px-14 text-white'>
                     <nav className='flex flex-row'>
-                        <h1 className='text-2xl font-bold'>Logo</h1>
+                        <h1 className='text-2xl font-bold'><LiaServicestack /></h1>
                         {menu ? 
                             <RiMenuFoldFill
                                 className='ml-14 mt-2 text-2xl' 

@@ -9,6 +9,7 @@ import Register from './Register';
 import ImageSlider from './home/ImageSlider';
 import Footer from './Footer';
 
+import { LiaServicestack } from "react-icons/lia";
 import bg from '../Images/footer-bg.jpg'
 import headerbg from '../Images/header-bg.jpg'
 
@@ -131,7 +132,7 @@ const Header = () => {
                         style={{ backgroundImage: `url(${headerbg})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
                         onClick={loginToggleShow}
                     >{type !== null ? handleClick(type) : null}
-                        <h1 className='text-2xl'>LSP</h1>
+                        <h1 className='text-6xl -m-4'><LiaServicestack /></h1>
                         <h2 className="text-2xl max-md:text-xl max-md:ml-5 font-extrabold text-gray-100 font-mono">Local Services Portal</h2>
                         <nav>
                             <ul className='flex flex-row space-x-4'>

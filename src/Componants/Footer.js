@@ -11,7 +11,7 @@ function Footer() {
                     <div className="flex justify-center md:order-2 space-x-4 text-2xl">
                       
                         <a
-                            href="https://wa.me/your-whatsapp-number"
+                            href="https://wa.me/7353249095"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="hover:text-gray-300 hover:scale-110"
@@ -29,7 +29,7 @@ function Footer() {
                         <a href="tel:your-phone-number" className="hover:text-gray-300 hover:scale-110">
                             <MdPhone />
                         </a>
-                        <a href="mailto:your-email@example.com" className="hover:text-gray-300 hover:scale-110">
+                        <a href="mailto:guruhanamannavar676@gmail.com" className="hover:text-gray-300 hover:scale-110">
                             <MdEmail />
                         </a>
                         <a

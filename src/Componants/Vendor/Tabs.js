@@ -10,6 +10,7 @@ import Dashboard from './Dashboard';
 import Slots from './Slots';
 import Leave from './Leave';
 import Documents from './Documents';
+import { LiaServicestack } from 'react-icons/lia';
 
 const Tabs = () => {
     const [loginBox, setLoginBox] = useState(false);
@@ -46,7 +47,7 @@ const Tabs = () => {
                 
                 <div className='fixed w-full bg-gray-800 p-4 flex justify-between items-center shadow-md px-6 md:px-14 text-white'>
                     <nav className='flex flex-row'>
-                        <h1 className='text-2xl font-bold'>Logo</h1>
+                        <h1 className='text-2xl font-bold'><LiaServicestack /></h1>
                         {menu ? 
                             <RiMenuFoldFill
                                 className='ml-14 mt-2 text-2xl' 
