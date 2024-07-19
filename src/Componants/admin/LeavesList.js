@@ -10,17 +10,17 @@ const LeavesList = () => {
         const fetchData = async() => {
             try {
                 const response = await axios.get(`${url}/api/leave`);
-                console.log(response.data);
+                // console.log(response.data);
                 setLeave(response.data);
             }
             catch (err) {
                 console.log(err);
-                setLeave([
-                    {firstName : 'Jhon deo', date : '01-06-2024', status : 1},
-                    {firstName : 'Jhon deo', date : '01-06-2024', status : 2}, 
-                    {firstName : 'Jhon deo', date : '01-06-2024', status : 0},
-                    {firstName : 'Jhon deo', date : '01-06-2024', status : 0}
-                ])
+                // setLeave([
+                //     {firstName : 'Jhon deo', date : '01-06-2024', status : 1},
+                //     {firstName : 'Jhon deo', date : '01-06-2024', status : 2}, 
+                //     {firstName : 'Jhon deo', date : '01-06-2024', status : 0},
+                //     {firstName : 'Jhon deo', date : '01-06-2024', status : 0}
+                // ])
             }
         }
         fetchData();
@@ -41,6 +41,12 @@ const LeavesList = () => {
             .then(response => console.log(response.data))
             .catch(err => console.log(err))
     }
+    const DataSetting = (db_date) => {
+        // console.log(db_date);
+        const date = new Date(db_date);
+        date.setDate(date.getDate() + 1);
+        return date.toISOString().split('T')[0];
+    }
   return (
     <div className='flex justify-center'>
         <div className="shadow-lg w-[58%] max-md:w-full mb-5 ml-5 max-md:ml-0 h-auto">
@@ -58,11 +64,12 @@ const LeavesList = () => {
                         <tr className="odd:bg-white even:bg-gray-50" key={index}>
                             <td className="border border-gray-300 px-4 max-md:px-1 py-3">{index+1}</td>
                             <td className="border border-gray-300 px-4 max-md:px-1 py-3">{item?.firstName}</td>
-                            <td className="border border-gray-300 px-4 max-md:px-1 py-3">{item?.date.split('T')[0]}</td>
+                            <td className="border border-gray-300 px-4 max-md:px-1 py-3"
+                                >{DataSetting(item.date)}</td>
                             {item?.leave_status === 0 ? 
                                 <td 
                                     onClick={()=>handleLeaveStatus(item)}
-                                    className="border border-gray-300 px-4 max-md:px-1 py-3 font-bold text-yellow-600">Approval</td> :
+                                    className="border border-gray-300 px-4 max-md:px-1 py-3 font-bold text-yellow-600 cursor-pointer">Approval</td> :
                                 item.leave_status === 1 ?
                                     <td 
                                         onClick={()=>handleLeaveStatus(item)}

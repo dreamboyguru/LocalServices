@@ -80,6 +80,7 @@ const Documents = () => {
                     localStorage.setItem('verify', 1)
                     navigate('/');
                     window.location.reload();
+                    return
                 }
                 if(response.data.adhar && response.data.pan && response.data.other) {
                     setVerify(true);

@@ -5,13 +5,14 @@ import * as Yup from 'yup';
 
 
 const validationSchema = Yup.object({
-    date: Yup.date().required('Required'),
+    date: Yup.date().required('Required').min(Date(), 'Date cannot be previos and present'),
 });
 
 
 const Leave = () => {
     const [leaveData, setLeaveData] = useState([]);
     const [loading, setLoading] = useState(false);
+    const [existDate, setExistDate] = useState(null);
     const email = localStorage.getItem('email');
     const url = process.env.REACT_APP_API_URL;
     
@@ -23,16 +24,16 @@ const Leave = () => {
         const fetchData = async() => {
             try {
                 const response = await axios.get(`${url}/api/leave/${email}`);
-                console.log(response.data);
+                // console.log(response.data);
                 setLeaveData(response.data);
             } catch (err) {
                 console.log(err);
-                setLeaveData([
-                    {date : '01-06-2024', status : '1'},
-                    {date : '01-06-2024', status : '2'}, 
-                    {date : '01-06-2024', status : '0'},
-                    {date : '01-06-2024', status : '0'}
-                ])
+                // setLeaveData([
+                //     {date : '01-06-2024', status : '1'},
+                //     {date : '01-06-2024', status : '2'}, 
+                //     {date : '01-06-2024', status : '0'},
+                //     {date : '01-06-2024', status : '0'}
+                // ])
             } finally {
                 setLoading(false);
             }
@@ -44,13 +45,24 @@ const Leave = () => {
         setLoading(true)
         try {
             const response = await axios.post(`${url}/api/leave`, {values, email});
-            console.log(response.data);
+            // console.log(response.data);
+            setExistDate(null)
+            alert('Leave Apply Successful')
         } catch (error) {
+            if (error.response.status === 400) {
+                setExistDate('Already applied this Date')
+            }
             console.error('Error submitting data:', error);
         } finally {
             setSubmitting(false);
         }
     };
+    const DataSetting = (db_date) => {
+        // console.log(db_date);
+        const date = new Date(db_date);
+        date.setDate(date.getDate() + 1);
+        return date.toISOString().split('T')[0];
+    }
   return (
     <div className="flex flex-wrap">
         <div className="bg-white rounded-md shadow-lg p-4 px-10 max-md:p-2 w-[40%] max-md:w-full mb-5 max-md:text-sm h-40 max-md:h-auto">
@@ -63,7 +75,10 @@ const Leave = () => {
                 >
                     {({ isSubmitting }) => (
                         <Form className="relative flex items-center justify-center w-full">
-                            <div className='absolute px-2 -top-2 left-5 max-md:left-2 bg-white text-sm max-md:text-xs'><ErrorMessage name="date" component="div" className="text-red-500" /></div>
+                            <div className='absolute px-2 -top-2 left-5 max-md:left-2 bg-white text-sm max-md:text-xs'>
+                                { existDate && <div name='date' className='text-red-600'>{existDate}</div>}
+                                <ErrorMessage name="date" component="div" className="text-red-500" />
+                            </div>
                             <div className="flex flex-col justify-center w-full">
                                 <Field
                                     type="date"
@@ -99,7 +114,7 @@ const Leave = () => {
                     {leaveData && leaveData.map((item, index) =>
                         <tr className="odd:bg-white even:bg-gray-50" key={item.id}>
                             <td className="border border-gray-300 px-4 py-4">{index+1}</td>
-                            <td className="border border-gray-300 px-4 py-4">{item?.date.split('T')[0]}</td>
+                            <td className="border border-gray-300 px-4 py-4">{DataSetting(item.date)}</td>
                             {item.status === 0 ? 
                                 <td className="border border-gray-300 px-4 py-4 font-bold text-yellow-600">Processing</td> :
                                 item.status === 1 ?

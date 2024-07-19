@@ -10,14 +10,14 @@ const Vendors = () => {
     const [data, setData] = useState([]);
     const location = useLocation();
     const { name } = location.state || {};
-    console.log(name); 
+    // console.log(name); 
     const url = process.env.REACT_APP_API_URL;
 
     useEffect(()=>{
         const fetchData = async() =>{
             try {
                 const response = await axios.get(`${url}/api/vendors/details/${name}`)
-                // console.log(response.data);
+                console.log(response.data);
                 setData(response.data);
             } catch (err) {
                 console.log(err);
@@ -50,10 +50,16 @@ const Vendors = () => {
             { data.length > 0 ?
                 data && data.map((item, index) => (
                     <div className="w-64 max-md:w-full bg-white rounded-lg shadow-lg flex flex-col justify-between relative mb-16 max-md:mb-10 z-10" key={index}>
+                        {item?.today_leave && 
+                            <div className='relative'>
+                                <span className='absolute top-2 right-1 z-40 text-red-600 text-[10px] font-bold'>Today Leave</span>
+                            </div>
+                        }
                         <div className="relative h-20">
                             <img className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-28 h-28 rounded-full border-4 border-white shadow-md bg-gray-200" src={`${url}/uploads/vendors/photo/${item.photo}`} alt={item.name} />
                             {/* <img className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-28 h-28 rounded-full border-4 border-white shadow-md bg-gray-200" src={`${item.img}`} alt={item.name} /> */}
                         </div>
+                        
                         <div className="p-4 text-left -mt-10 text-gray-800 flex-grow">
                             <h3 className="text-lg font-semibold text-gray-800 text-center mb-2">{item.name}</h3>
                             <p className="text-gray-600 text-sm"><span className='font-semibold text-sm'>Phone : </span>{item.phone}</p>
