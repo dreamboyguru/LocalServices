@@ -47,7 +47,7 @@ const Tabs = () => {
                 
                 <div className='fixed w-full bg-gray-800 p-4 flex justify-between items-center shadow-md px-6 md:px-14 text-white'>
                     <nav className='flex flex-row'>
-                        <h1 className='text-2xl font-bold'><LiaServicestack /></h1>
+                        <h1 className='text-2xl font-bold'><LiaServicestack className='size-14 -my-3'/></h1>
                         {menu ? 
                             <RiMenuFoldFill
                                 className='ml-14 mt-2 text-2xl' 

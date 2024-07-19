@@ -38,7 +38,7 @@ const UserHeader = () => {
                 style={{ backgroundImage: `url(${headerbg})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
                 onClick={loginToggleShow}
             >
-                <h1 className='ml-20 max-md:ml-32 text-2xl max-md:text-lg'><LiaServicestack /></h1>
+                <h1 className='ml-20 max-md:ml-32 text-2xl max-md:text-lg'><LiaServicestack className='size-14 -my-4'/></h1>
                 <nav className=''>
                     <ul className='flex flex-row space-x-4'>
                         <li onClick={loginToggle} className='max-md:absolute max-md:top-3 max-md:right-2'>

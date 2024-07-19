@@ -12,8 +12,8 @@ const Register = ({regType, RegistrationShow, userLoginShow, vendorLoginShow}) =
     
     // Define the validation schema with Yup
     const validationSchema = Yup.object({
-        firstName: Yup.string().required('Required'),
-        lastName: Yup.string().required('Required'),
+        firstName: Yup.string().required('Required').matches(/^[A-Za-z]+$/, 'Only characters allowed'),
+        lastName: Yup.string().required('Required').matches(/^[A-Za-z]+$/, 'Only characters allowed'),
         email: Yup.string().email('Invalid email').required('Required'),
         phone: Yup.string().min(10, '10 digit Required').max(10, '10 digit Required').required('Required'),
         address: Yup.string().min(20,'min 20 charactor').required('Address is Required'),
@@ -85,7 +85,7 @@ const Register = ({regType, RegistrationShow, userLoginShow, vendorLoginShow}) =
     return (
         <div className='flex justify-center px-5'>
             {loginBox && userLoginShow()}
-            <div className='absolute bg-gray-500 w-1/2 max-md:w-[98%] p-4 max-md:p-2 max-md:mx-1 text-white z-40 mt-8 max-md:mt-24 rounded-md shadow-lg bg-opacity-90'>
+            <div className='absolute bg-gray-500 w-1/2 max-md:w-[98%] p-4 max-md:p-2 max-md:mx-1 text-white z-40 mt-5 max-md:mt-24 rounded-md shadow-lg bg-opacity-90'>
                 <RiCloseLine 
                     className='absolute top-1 right-1 text-2xl cursor-pointer hover:scale-150' 
                     onClick={RegistrationShow}
@@ -162,7 +162,8 @@ const Register = ({regType, RegistrationShow, userLoginShow, vendorLoginShow}) =
                                         </div>
                                         <input 
                                             name='photo' 
-                                            type='file' 
+                                            type='file'
+                                            accept='image/*'
                                             className='rounded-b-md pl-2 py-2 max-md:py-0.5 focus:outline-none' 
                                             onChange={(event) => {
                                                 setFieldValue('photo', event.currentTarget.files[0]);
@@ -190,7 +191,7 @@ const Register = ({regType, RegistrationShow, userLoginShow, vendorLoginShow}) =
                                 </div>
                                 
                                 <div className='w-full'>
-                                        <button type='submit' className='w-full bg-gray-300 hover:bg-gray-50 text-black py-2 max-md:py-1 rounded-t-md'>Submit</button>
+                                        <button type='submit' className='w-full bg-gray-300 hover:bg-gray-50 text-black py-2 max-md:py-1 rounded-t-md'>Register</button>
                                     </div>
                             </Form>
                         )}

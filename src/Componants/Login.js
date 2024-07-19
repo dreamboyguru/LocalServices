@@ -133,7 +133,7 @@ const Login = ({loginType, loginShow, userRegShow, VendorRegShow}) => {
                                         Forgot password ?
                                     </div> */}
                                     <div className='w-full'>
-                                        <button type='submit' className='w-full bg-gray-300 hover:bg-gray-50 text-black py-2 max-md:py-1 px-6 rounded-md'>Submit</button>
+                                        <button type='submit' className='w-full bg-gray-300 hover:bg-gray-50 text-black py-2 max-md:py-1 px-6 rounded-md'>Sign In</button>
                                     </div>
                                 </div>
                             </Form>
